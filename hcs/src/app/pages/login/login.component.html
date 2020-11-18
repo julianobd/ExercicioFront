@@ -11,36 +11,37 @@
           <mat-card-title>SHARP SWORD</mat-card-title>
         </div>
         <div class="content-acess">
-          <h1>Criar Conta</h1>
-          <form class="example-form">
+          <h1>Login</h1>
+          <form class="example-form" (ngSubmit)="save()" [formGroup]="form" >
             <mat-form-field class="example-full-width">
               <mat-label>Email</mat-label>
-                <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+                <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
                 <mat-icon matSuffix>email</mat-icon>
-                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                   Please enter a valid email address
                 </mat-error>
                 <mat-error *ngIf="emailFormControl.hasError('required')">
                   Email is <strong>required</strong>
-                </mat-error>
+                </mat-error>-->
             </mat-form-field>
             <mat-form-field class="example-full-width">
               <mat-label>Senha</mat-label>
-              <input type="password" matInput >
+              <input type="password" matInput formControlName="password"  >
               <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
-            <mat-form-field class="example-full-width">
+            <!--<mat-form-field class="example-full-width">
               <mat-label>Confirmar Senha</mat-label>
               <input type="password" matInput >
               <mat-icon matSuffix>lock</mat-icon>
-            </mat-form-field>
+            </mat-form-field>-->
+            <section class="btn-section">
+              <div class="example-label"></div>
+              <div class="example-button-row">
+                <button mat-button type="submit">Login</button>
+              </div>
+            </section>
           </form>
-          <section class="btn-section">
-            <div class="example-label"></div>
-            <div class="example-button-row">
-              <button mat-button>Criar Conta</button>
-            </div>
-          </section>
+
         </div>
       </div>
     </section>

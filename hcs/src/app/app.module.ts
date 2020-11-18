@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
 
   ],
