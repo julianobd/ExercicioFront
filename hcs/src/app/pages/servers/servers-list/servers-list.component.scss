@@ -1,0 +1,28 @@
+.container{
+    background-image: url("/assets/fundo2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width:auto;
+    height:100%;
+
+}
+
+.mat-elevation-z8 {
+  width: 50%;
+  position: relative;
+  margin: 0 auto;
+  top: 30%;
+}
+table{
+  width:100%;
+  background:none;
+}
+td{
+  background-color: white;
+  opacity: 0.8;
+}
+.t-header{
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
