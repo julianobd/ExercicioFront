@@ -25,8 +25,6 @@ export interface PeriodicElement {
   disease:boolean;
   edit:string;
 
-
-
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
