@@ -1,1 +1,10 @@
-<p>avatar-list works!</p>
+<h1>Avatar</h1>
+
+  <ul *ngFor="let avatar of reponseAvatar">
+    <li> {{avatar.name}} </li>
+    <li> {{avatar.health}} </li>
+    <li> {{avatar.hungry}} </li>
+    <li> {{avatar.armor}} </li>
+    <li> {{avatar.money}} </li>
+    <li> {{avatar.experience}} </li>
+  </ul>

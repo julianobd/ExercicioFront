@@ -18,7 +18,7 @@ import { UserProfileComponent } from './pages/users/user-profile/user-profile.co
 import { ServersCreateComponent } from './pages/servers/servers-create/servers-create.component';
 import { AvatarListComponent } from './pages/avatar/avatar-list/avatar-list.component';
 import { AvatarEditComponent } from './pages/avatar/avatar-edit/avatar-edit.component'
-import { MaterialModule } from './pages/material.module';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import { MaterialModule } from './pages/material.module';
     UserProfileComponent,
     ServersCreateComponent,
     AvatarListComponent,
-    AvatarEditComponent
+    AvatarEditComponent,
+
   ],
   imports: [
     BrowserModule,
