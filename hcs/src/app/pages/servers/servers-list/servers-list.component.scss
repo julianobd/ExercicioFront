@@ -22,7 +22,31 @@ td{
   background-color: white;
   opacity: 0.8;
 }
+/*
 .t-header{
-  background: rgba(0, 0, 0, 0.6);
+  background-color: white;
+  opacity: 0.8;
+  font-size:18px;
+}
+*/
+.mat-button{
+  float: right;
+}
+.t-header{
+  background: rgba(0, 154, 255, 0.8);
   color: white;
+}
+
+#servidores{
+  float: left;
+  font-size:24px;
+  font-weight: bold;
+  margin:10px;
+  margin-top:20px;
+}
+
+.add{
+  background-color:#05BC4E;
+  margin:10px;
+
 }

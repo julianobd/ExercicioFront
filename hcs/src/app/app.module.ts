@@ -9,6 +9,8 @@ import { ServersListComponent } from './pages/servers/servers-list/servers-list.
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     MatTableDataSource
