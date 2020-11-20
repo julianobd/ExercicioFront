@@ -43,7 +43,8 @@ constructor(
   openDialog(expMach, id: string, description: string, expEachMinute: string, automaticStart: boolean, hourStart: number, hourEnds: number, enabled: boolean){
     console.log(expMach);
     const dialogRef = this.dialog.open(EditMachinesComponent, {
-      data: {expMach: expMach, id: id, description: description, expEachMinute: expEachMinute, automaticStart: automaticStart, hourStart: hourStart, hourEnds: hourEnds, enabled: enabled}
+      data: {expMach: expMach, id: id, description: description, expEachMinute: expEachMinute, automaticStart: automaticStart, hourStart: hourStart, hourEnds: hourEnds, enabled: enabled},
+      backdropClass: 'backdropBackground'
     });
     dialogRef.afterClosed().subscribe(results => setTimeout(() =>{
       this.refresh();
