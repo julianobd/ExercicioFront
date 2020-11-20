@@ -1,5 +1,6 @@
 
 
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,28 +9,22 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginComponent } from './pages/login/login.component';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './pages/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ServersCreateComponent } from './pages/servers/servers-create/servers-create.component';
 
-<<<<<<< Updated upstream
-import { UsersComponent } from './pages/users/users.component';
-=======
->>>>>>> Stashed changes
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< Updated upstream
-    LoginComponent
-    UsersComponent
-=======
     LoginComponent,
     ServersCreateComponent,
 
->>>>>>> Stashed changes
+
 
   ],
   imports: [
