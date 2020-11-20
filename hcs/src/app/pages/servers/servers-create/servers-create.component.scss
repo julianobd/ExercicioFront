@@ -39,15 +39,22 @@ button{
   padding-top: 28.23px;
 }
 
-.example-form {
+.form {
   padding-top: 100px;
   padding-left: 55px;
-
   width: 379px;
+  display:flex;
+  flex-direction: column;
 }
 
 
 .example-full-width {
   width: 100%;
+}
+.radio{
+  margin-right: 10px;
+}
+.radio-group{
+  margin-bottom: 10px;
 }
 

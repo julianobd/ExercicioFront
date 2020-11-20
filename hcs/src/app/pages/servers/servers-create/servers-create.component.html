@@ -1,69 +1,30 @@
 <section class="box">
   <mat-card class="example-card">
     <mat-card-title>CRIAR SERVIDOR</mat-card-title>
-    <form class="example-form" (ngSubmit)="createServers()" [formGroup]="form">
+    <form class="form" (ngSubmit)="createServers()" [formGroup]="form">
       <mat-form-field class="example-full-width">
         <mat-label>Nome</mat-label>
-        <input matInput class="form-control"  formControlName="name" />
+        <input matInput class="form-control"  formControlName="name"/>
       </mat-form-field>
 
-      <label>Compartilhado</label>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
+      <mat-radio-group class="radio-group" aria-label="Select an option"  formControlName="shared">
+        <mat-radio-button class="radio" [value]="true">sim</mat-radio-button>
+        <mat-radio-button [value]="false">não</mat-radio-button>
+      </mat-radio-group>
 
-            id="inlineRadio1"
-            value="true"
-            formControlName="shared"
-          />
-          <label class="form-check-label" for="inlineRadio1">Sim</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
+      <mat-radio-group class="radio-group" aria-label="Select an option"  formControlName="hasDisease">
+        <mat-radio-button class="radio" [value]="true">sim</mat-radio-button>
+        <mat-radio-button [value]="false">não</mat-radio-button>
+      </mat-radio-group>
 
-            id="inlineRadio1"
-            value="false"
-            formControlName="shared"
-          />
-          <label class="form-check-label" for="inlineRadio1">Não</label>
-        </div>
-      </div>
-      <div>
-        <div class="form-check form-check-inline">
-          <label>Doença</label>
-          <input
-            class="form-check-input"
-            type="radio"
-
-            id="inlineRadio2"
-            value="true"
-            formControlName="hasDisease"
-          />
-          <label class="form-check-label" for="inlineRadio2">Sim</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-
-            id="inlineRadio2"
-            value="false"
-            formControlName="hasDisease"
-          />
-          <label class="form-check-label" for="inlineRadio2">Não</label>
-        </div>
-      </div>
 
       <mat-form-field>
-        <mat-label>Dinheiro Inicial:0</mat-label>
+        <mat-label>Dinheiro Inicial</mat-label>
         <input matInput type="number" class="form-control"  formControlName="initialMoney" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Ponto de status Inicial:0</mat-label>
+        <mat-label>Ponto de status Inicial</mat-label>
         <input matInput type="number" class="form-control" formControlName="initialStatsPoints" />
       </mat-form-field>
       <section class="btn-section">

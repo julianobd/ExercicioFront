@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs';
-import { TokenService } from './token.service';
 
+import { TokenService } from './token.service';
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,19 +9,24 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServersCreateServiceService {
 
-  token:any ='4f27a4e6-13aa-46ab-b32c-230b80f03167-642b8cd5-2b4d-45e5-bf67-57bbcf5e8520'
+
   constructor(private http:HttpClient, private tokenService:TokenService) {
 
   }
-  postServer(data){
+  saveServer(data){
       console.log(data)
+      const token = this.tokenService.getToken();
+
     const params = {
       name: data.name,
       shared: data.shared,
+      hasDisease: data.hasDisease,
       initialMoney: data.initialMoney,
       initialStatsPoints: data.initialStatsPoints
+
     }
-      return this.http.post(`http://hcs.dev4.com.br/api/Servers/AddServers/${this.token}`,params)
+
+      return this.http.post(`http://hcs.dev4.com.br/api/Servers/AddServers/${token}`,params).pipe(map((res:string) => res))
 
 
   }

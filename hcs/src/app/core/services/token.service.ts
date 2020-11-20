@@ -11,11 +11,14 @@ export class TokenService {
   constructor(private http:HttpClient) {
 
   }
-  getToken(){
-    return this.token;
-  }
+
   setToken(token:string){
     this.token = token;
+    console.log(token)
+  }
+  getToken(){
+    return this.token;
+
   }
 
 }

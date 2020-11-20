@@ -16,8 +16,10 @@ export class ServersCreateComponent implements OnInit {
 
   constructor(private serversCreateServiceService:ServersCreateServiceService,private fb:FormBuilder) {
       this.form = this.fb.group({
+
         name:'',
         shared:'',
+        hasDisease:'',
         initialMoney:'',
         initialStatsPoints:''
       })
@@ -26,7 +28,7 @@ export class ServersCreateComponent implements OnInit {
   ngOnInit(): void {
   }
   createServers(){
-  return this.serversCreateServiceService.postServer(this.form.value).subscribe((res:any)=>console.log(res))
+  return this.serversCreateServiceService.saveServer(this.form.value).subscribe((res:any)=>console.log(res))
   }
 
 }
