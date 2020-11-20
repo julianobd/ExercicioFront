@@ -1,0 +1,74 @@
+<div class="container">
+
+    <h3 mat-dialog-title>EDITAR MÁQUINA DE EXPERIÊNCIA </h3>
+    
+
+    <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+        <div class="form">
+          <mat-form-field color="accent">
+            <input matInput #input class="form-control" placeholder="Descrição" [(ngModel)]="expMach.description" name="descricao" required >
+
+            <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row-1">
+        <div class="form">
+            <mat-form-field color="accent">
+              <input matInput #input class="form-control" placeholder="Experiência por minuto" [(ngModel)]="expMach.expEachMinute" name="expEachMinute" required >
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-form-field color="accent">
+            <mat-select [(ngModel)]="expMach.automaticStart" name="automaticStart " required placeholder="Ínicio automático">
+                <mat-option [value]="true">True</mat-option>
+                <mat-option [value]="false">False </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+          <div class="row-1">
+          <div class="form">
+            <mat-form-field color="accent">
+              <input matInput #input class="form-control" placeholder="Hora de início" [(ngModel)]="expMach.hourStart" name="hourStart"  required >
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-form-field color="accent">
+              <input matInput #input class="form-control" placeholder="Hora do fim" [(ngModel)]="expMach.hourEnds" name="hourEnds" required >
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+          <!-- <div class="form">
+            <mat-form-field color="accent">
+              <input matInput #input class="form-control" placeholder="enabled" [(ngModel)]="expMach.enabled" name="enabled" required >
+              <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div> -->
+
+          <div class="form">
+            <mat-form-field color="accent">
+            <mat-select [(ngModel)]="expMach.enabled" name="enabled" required placeholder="Ativa">
+                <mat-option [value]="true">True</mat-option>
+                <mat-option [value]="false">False </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+
+
+        <div mat-dialog-actions>
+            <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="save(expMach.id)">Save</button>
+            <button mat-button (click)="cancel()" tabindex="-1">Cancel</button>
+        </div>
+
+    </form>
+</div>
