@@ -20,7 +20,7 @@ import { EditMachinesComponent } from './edit-machines/edit-machines.component';
 
 export class ExpMachinesComponent implements OnInit {
 
-  displayedColumns = ['description', 'expEachMinute', 'automaticStart', 'hourStart', 'hourEnds', 'enabled', 'edit'];
+  displayedColumns = ['select', 'description', 'expEachMinute', 'automaticStart', 'hourStart', 'hourEnds', 'enabled', 'edit'];
 
   expMachines: ExpMachines[];
   dataSource = new MatTableDataSource<ExpMachines>();
@@ -61,10 +61,6 @@ constructor(
     });
   };
 
-  // deleteItem(){
-  //   console.log('Deleting...');
-
-  // }
   
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -77,15 +73,15 @@ constructor(
   masterToggle() {
     this.isAllSelected() ?
         this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));
+        this.dataSource.data.forEach(i => this.selection.select(i));
   };
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: ExpMachines): string {
-    if (!row) {
+  checkboxLabel(i?): string {
+    if (!i) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.description + 1}`;
+    return `${this.selection.isSelected(i) ? 'deselect' : 'select'} row ${i + 1}`;
   }
 
   
