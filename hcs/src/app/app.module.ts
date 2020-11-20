@@ -12,15 +12,24 @@ import { MaterialModule } from './material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+<<<<<<< Updated upstream
 import { UsersComponent } from './pages/users/users.component';
+=======
+>>>>>>> Stashed changes
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< Updated upstream
     LoginComponent
     UsersComponent
+=======
+    LoginComponent,
+    ServersCreateComponent,
+
+>>>>>>> Stashed changes
 
   ],
   imports: [

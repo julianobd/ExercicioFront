@@ -1,4 +1,4 @@
-import { UsersService } from './../../core/services/users.service';
+/*import { UsersService } from './../../core/services/users.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -41,4 +41,4 @@ export class UsersComponent implements OnInit {
   //   })
   // }
 
-}
+}*/
