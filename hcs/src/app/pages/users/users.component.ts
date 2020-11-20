@@ -15,17 +15,17 @@ export class UsersComponent implements OnInit {
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
-    this.usersService.getUsers().subscribe(users => {
-      this.users = users
-      console.log(users, 'dados obtidos')
-      console.log(this.users, 'dados armazenados')
-    })
+    // this.usersService.getUsers().subscribe(users => {
+    //   this.users = users
+    //   console.log(users, 'dados obtidos')
+    //   console.log(this.users, 'dados armazenados')
+    // })
   }
 
-  addUser(): void {
-    this.usersService.getAdd(this.user)
-    console.log('produto criado')
-  }
+  // addUser(): void {
+  //   this.usersService.getAdd(this.user)
+  //   console.log('produto criado')
+  // }
 
   // getUsers() {
   //   this.usersService.getUsers().subscribe( data => {
