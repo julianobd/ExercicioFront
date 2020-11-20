@@ -1,0 +1,26 @@
+<form>
+  <div>
+    <label for="">Nome</label>
+    <input type="text" placeholder="Nome" name="name" [(ngModel)]="user.name">
+  </div>
+  <div>
+    <label for="">E-mail</label>
+    <input type="email" placeholder="Email" name="email" [(ngModel)]="user.email">
+  </div>
+  <div>
+    <label for="">Senha</label>
+    <input type="password" placeholder="Senha" name="password" [(ngModel)]="user.password">
+  </div>
+  <div>
+    <label for="">Nível de permissão</label>
+    <input type="number" placeholder="Permissão" name="permission" [(ngModel)]="user.permission">
+  </div>
+  <div>
+    <label for="">Servidor</label>
+    <input type="text" placeholder="Servidor" name="server" [(ngModel)]="user.serverId">
+  </div>
+
+  <button type="button" (click)="addUser()">Salvar</button>
+  <button type="button" (click)="cancelar()">Cancelar</button>
+
+</form>

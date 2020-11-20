@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 70%;
+  min-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  font-size: 1em;
+  font-weight: bold;
+  color: rgb(59, 59, 59);
+}
+
+.edit {
+  color: rgb(255, 230, 0);
+}
+
+.delete {
+  color: rgb(255, 115, 0);
+  border: none;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 47%;
+  top: 40%;
+}
