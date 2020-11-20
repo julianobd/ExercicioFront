@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicesEditService } from 'src/app/core/services/services-edit.service';
 
 @Component({
   selector: 'app-servers-list',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersListComponent implements OnInit {
 
-  constructor() { }
+  itens: any;
+
+  constructor(private ServicesEditService: ServicesEditService) { }
 
   ngOnInit(): void {
+    this.ServicesEditService.getServer()
+      .subscribe(itens => this.itens = itens.availableItems)
+
   }
 
 }

@@ -21,4 +21,8 @@ export class AvatarListService {
    getAvatar(): Observable<ResponseAvatar>{
      return this.http.get<ResponseAvatar>(this.url + '/' + `${this.userToken}` + '/' + `${this.serverId}`);
    }
+
+   getAvatarEdit(): Observable<ResponseAvatar>{
+    return this.http.get<ResponseAvatar>(this.url + '/' + `${this.userToken}` + '/' + `${this.serverId}`);
+  }
 }

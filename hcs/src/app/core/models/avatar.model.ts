@@ -17,3 +17,8 @@ export interface ResponseAvatar {
   experience: number;
   title:	string;
 }
+
+//Update
+export interface ResponseAvatarEdit {
+
+}
