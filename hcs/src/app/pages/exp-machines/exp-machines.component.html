@@ -6,9 +6,12 @@
         <span>MÁQUINAS DE EXPERIÊNCIA</span>
     </mat-toolbar>
 
+    <div class="spinner">
+    <mat-spinner  [diameter]="40" *ngIf="!tableIsLoaded"></mat-spinner>
+    </div>
 
-
-<mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8"
+ *ngIf="tableIsLoaded && dataSource">
 
     <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -28,41 +31,44 @@
         </td>
       </ng-container>
           
-            <!-- Position Column -->
+            <!-- Description Column -->
     <ng-container matColumnDef="description">
         <th mat-header-cell *matHeaderCellDef> Descrição </th>
         <td mat-cell *matCellDef="let expMach"> {{expMach.description}} </td>
     </ng-container>
           
-            <!-- Name Column -->
+            <!-- ExpEachMinute Column -->
     <ng-container matColumnDef="expEachMinute">
         <th mat-header-cell *matHeaderCellDef> Exp por minuto </th>
         <td mat-cell *matCellDef="let expMach"> {{expMach.expEachMinute}} </td>
     </ng-container>
           
-            <!-- Weight Column -->
+            <!-- AutomaticStart Column -->
     <ng-container matColumnDef="automaticStart">
         <th mat-header-cell *matHeaderCellDef> Início automático </th>
         <td mat-cell *matCellDef="let expMach"> {{expMach.automaticStart ? 'Sim' : 'Não'}} </td>
     </ng-container>
           
-            <!-- Symbol Column -->
+            <!-- HourStart Column -->
     <ng-container matColumnDef="hourStart">
         <th mat-header-cell *matHeaderCellDef> Hora de início </th>
         <td mat-cell *matCellDef="let expMach"> {{ expMach.hourStart | slice:0:8 }} </td>
     </ng-container>
 
+            <!-- HourEnds Column -->
     <ng-container matColumnDef="hourEnds">
         <th mat-header-cell *matHeaderCellDef> Hora do fim </th>
         <td mat-cell *matCellDef="let expMach"> {{ expMach.hourEnds | slice:0:8 }} </td>
     </ng-container>
 
+            <!-- Enabled Column -->
     <ng-container matColumnDef="enabled">
         <th mat-header-cell *matHeaderCellDef> Habilitado </th>
         <td mat-cell *matCellDef="let expMach"> {{ expMach.enabled? 'Sim' : 'Não' }} </td>
     </ng-container>
 
 
+            <!-- Edit Column -->
     <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef> Editar </th>
         <td mat-cell *matCellDef="let expMach">

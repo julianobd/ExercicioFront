@@ -25,6 +25,7 @@ export class ExpMachinesComponent implements OnInit {
   expMachines: ExpMachines[];
   dataSource = new MatTableDataSource<ExpMachines>();
   selection = new SelectionModel<ExpMachines>(true, []);
+  tableIsLoaded: boolean;
 
 constructor(
   private expMachinesService: ExpMachinesService,
@@ -38,6 +39,7 @@ constructor(
 
   ngOnInit(): void {
   this.refresh();
+  this.tableIsLoaded = false;
   }
 
   openDialog(expMach, id: string, description: string, expEachMinute: string, automaticStart: boolean, hourStart: number, hourEnds: number, enabled: boolean){
@@ -46,9 +48,12 @@ constructor(
       data: {expMach: expMach, id: id, description: description, expEachMinute: expEachMinute, automaticStart: automaticStart, hourStart: hourStart, hourEnds: hourEnds, enabled: enabled},
       backdropClass: 'backdropBackground'
     });
-    dialogRef.afterClosed().subscribe(results => setTimeout(() =>{
+    dialogRef.afterClosed().subscribe(results => { 
+      this.tableIsLoaded = false;
+      setTimeout(() =>{
       this.refresh();
-    }, 1000)
+    }, 700)
+  }
     )
     
   };
@@ -59,6 +64,7 @@ constructor(
       this.dataSource = new MatTableDataSource(response);
       this.dataSource.sort = this.sort;
       this.changeDetectorRef.detectChanges();
+      this.tableIsLoaded = true;
     });
   };
 
