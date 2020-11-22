@@ -46,22 +46,20 @@ constructor(
     console.log(expMach);
     const dialogRef = this.dialog.open(EditMachinesComponent, {
       data: {expMach: expMach, id: id, description: description, expEachMinute: expEachMinute, automaticStart: automaticStart, hourStart: hourStart, hourEnds: hourEnds, enabled: enabled},
-      backdropClass: 'backdropBackground'
+      
     });
     dialogRef.afterClosed().subscribe(results => { 
-      this.tableIsLoaded = false;
       setTimeout(() =>{
       this.refresh();
-    }, 700)
-  }
-    )
-    
+        }, 600)
+      }
+    );
   };
 
   refresh(){
     this.expMachinesService.getAll()
-    .subscribe(response =>  {
-      this.dataSource = new MatTableDataSource(response);
+    .subscribe(data =>  {
+      this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.changeDetectorRef.detectChanges();
       this.tableIsLoaded = true;
@@ -88,7 +86,7 @@ constructor(
     if (!i) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
-    return `${this.selection.isSelected(i) ? 'deselect' : 'select'} row ${i + 1}`;
+    return `${this.selection.isSelected(i) ? 'deselect' : 'select'} row ${i}`;
   }
 
   

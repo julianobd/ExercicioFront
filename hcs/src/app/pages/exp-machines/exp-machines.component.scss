@@ -3,18 +3,29 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    min-width: 75%;
+    max-width: 60%;
+    min-width: 60%;
     margin: auto;
     margin-top: 20px;
     justify-content: center;
     opacity: 0.6;
   }
 
+  .spinner{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+  }
+
 .mat-toolbar{
   background-color: rgba(0, 154, 255, 0.8);
   }
 
+  mat-table{
+    width: 100%;
+    table-layout: fixed;
+  }
+  
 span{
     font-weight: 700;
     font-size: 24px;
@@ -51,14 +62,14 @@ span{
       text-align: center;
       color: rgba( #000000, 1.0);
       font-weight: 400;
-      
+
   }
 
-.spinner{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
+  .description{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
 
   
 

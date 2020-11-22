@@ -40,7 +40,7 @@ export class EditMachinesComponent implements OnInit {
 
   save(id: string): void {
     this.expMachinesService.edit(this.expMach, id)
-    .subscribe()
+    .subscribe( )
   };
 
 
