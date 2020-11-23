@@ -71,6 +71,10 @@ span{
     word-break: break-word;
   }
 
+  .custom-dialog-container .mat-dialog-container {
+    border-radius: 10px !important;
+    background-color: transparent !important;
+  }
   
 
   

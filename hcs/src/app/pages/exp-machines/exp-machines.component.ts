@@ -46,6 +46,7 @@ constructor(
     console.log(expMach);
     const dialogRef = this.dialog.open(EditMachinesComponent, {
       data: {expMach: expMach, id: id, description: description, expEachMinute: expEachMinute, automaticStart: automaticStart, hourStart: hourStart, hourEnds: hourEnds, enabled: enabled},
+      panelClass: 'custom-dialog-container' 
       
     });
     dialogRef.afterClosed().subscribe(results => { 
