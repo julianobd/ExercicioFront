@@ -13,10 +13,12 @@ export class TokenService {
   }
 
   setToken(token:string){
+
     this.token = token;
     console.log(token)
   }
   getToken(){
+
     return this.token;
 
   }

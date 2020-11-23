@@ -28,6 +28,7 @@ export class ServersCreateComponent implements OnInit {
   ngOnInit(): void {
   }
   createServers(){
+
   return this.serversCreateServiceService.saveServer(this.form.value).subscribe((res:any)=>console.log(res))
   }
 
