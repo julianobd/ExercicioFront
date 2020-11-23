@@ -1,3 +1,4 @@
+import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { User } from './../../core/models/user.model';
@@ -88,30 +89,51 @@ export class UsersComponent implements OnInit {
     this.router.navigate(['users/profile/', name])
   }
 
-  // Abre o Dialog
+  // Abre o Dialog de deletar usuário
   openDeleteDialog(id: string) {
     const dialogRef = this.dialog.open(UserDeleteComponent, {
       data: {id: id}
     });
     dialogRef.afterClosed().subscribe(res => {
-      this.showSpinner = true;
-      setTimeout(() => {
-      console.log('Excluindo usuário...')
-      this.refreshUsers();
-      this.showSpinner = false;
-    }, 500);
+      if (res == true) {
+        this.showSpinner = true;
+          setTimeout(() => {
+          console.log('Excluindo usuário...')
+          this.refreshUsers();
+          this.showSpinner = false;
+        }, 500);
+      }
     })
   }
 
+  // Abre o Dialog para adicionar um usuário
   openAddDialog() {
     const dialogRef = this.dialog.open(UserCreateComponent);
     dialogRef.afterClosed().subscribe(res => {
-      this.showSpinner = true;
-      setTimeout(() => {
-      console.log('Adicionando usuário...')
-      this.refreshUsers();
-      this.showSpinner = false;
-    }, 500);
+      if (res == true) {
+        this.showSpinner = true;
+          setTimeout(() => {
+          console.log('Adicionando usuário...')
+          this.refreshUsers();
+          this.showSpinner = false;
+        }, 500);
+      }
+    })
+  }
+
+  openEditDialog(id: string, name: string, email: string, password: string, permission: number) {
+    const dialogRef = this.dialog.open(UserEditComponent, {
+      data: {id: id, name: name, email: email, password: password, permission: permission}
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res == true) {
+        this.showSpinner = true;
+          setTimeout(() => {
+          console.log('Adicionando usuário...')
+          this.refreshUsers();
+          this.showSpinner = false;
+        }, 500);
+      }
     })
   }
 

@@ -1,13 +1,15 @@
 <div class="main">
-  <div class="card mat-elevation-z2">
+  <mat-card class="container">
 
-    <div class="tittle">
-      <h1>USUÁRIOS</h1>
+    <mat-card-header>
+      <mat-card-title>
+        <h1>USUÁRIOS</h1>
+      </mat-card-title>
       <div class="btn-group">
-        <button class="" color="warn" mat-raised-button (click)="routerToUserCreate()">Excluir</button>
-        <button class="" color="primary"  mat-raised-button (click)="openAddDialog()">Adicionar</button>
+        <button class="btn-1" color="warn" mat-raised-button (click)="routerToUserCreate()">Excluir</button>
+        <button class="btn-2" color="primary"  mat-raised-button (click)="openAddDialog()">Adicionar</button>
       </div>
-    </div>
+    </mat-card-header>
 
     <table mat-table [dataSource]="users" >
 
@@ -48,13 +50,13 @@
       </ng-container>
 
       <!-- Coluna Ações -->
-      <ng-container matColumnDef="actions">
+      <ng-container matColumnDef="actions" class="lastone">
         <th mat-header-cell *matHeaderCellDef> Ações </th>
         <td mat-cell *matCellDef="let user">
-          <a mat-button routerLink="/users/edit/{{ user.id }}">
+          <button mat-button class="" (click)="openEditDialog(user.id)">
             <i class="material-icons edit" >edit</i>
-          </a>
-          <button mat-button class="" (click)="openDeleteDialog(user.id)" class="">
+          </button>
+          <button mat-button class="" (click)="openDeleteDialog(user.id)">
             <i class="material-icons delete">delete</i>
           </button>
         </td>
@@ -67,23 +69,17 @@
 
     </table>
 
-    <mat-paginator class="mat-paginator-container" #paginator
+    <mat-paginator class="mat-paginator" #paginator
         [length]="dataSource?.data.length"
         [pageIndex]="0"
         [pageSize]="10"
         [pageSizeOptions]="[5, 10, 20, 30, 50, 100, 250]">
     </mat-paginator>
 
-  <div>
+  </mat-card>
 
   <mat-spinner class="spinner" *ngIf="showSpinner"></mat-spinner>
 
-
-  <!-- <ul *ngFor="let user of users">
-    <li>{{ user.name }}</li>
-    <button (click)="deleteUser(user.id)">Deletar usário</button>
-    <button (click)="routerToUserEdit(user.id)">Editar Usuário</button>
-  </ul> -->
 </div>
 
 

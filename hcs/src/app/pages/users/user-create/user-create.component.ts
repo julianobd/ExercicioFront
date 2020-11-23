@@ -29,6 +29,7 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Função para adicionar usuário
   addUser(): void {
     this.usersService.addUser(this.user).subscribe(data => {
     console.log('produto criado')
@@ -37,9 +38,11 @@ export class UserCreateComponent implements OnInit {
     })
   }
 
+  // Cancelar a tela de edição de usuário
   cancelar(): void {
     this.router.navigate(['/users'])
   }
+
 
   getErrorMsg() {
     if (this.email.hasError('required')) {
