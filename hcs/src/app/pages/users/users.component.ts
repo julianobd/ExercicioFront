@@ -1,11 +1,14 @@
+import { UserCreateComponent } from './user-create/user-create.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { User } from './../../core/models/user.model';
 import { UsersService } from './../../core/services/users.service';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-users',
@@ -14,6 +17,10 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UsersComponent implements OnInit {
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  // Variável para ativar o spinner
   showSpinner = false;
 
   // LISTA DE USUÁRIOS
@@ -56,6 +63,7 @@ export class UsersComponent implements OnInit {
   // Carrega todos os usuários
   ngOnInit(): void {
     this.refreshUsers()
+    this.dataSource.paginator = this.paginator;
   }
 
   // Atualiza a lista de usuários
@@ -89,6 +97,18 @@ export class UsersComponent implements OnInit {
       this.showSpinner = true;
       setTimeout(() => {
       console.log('Excluindo usuário...')
+      this.refreshUsers();
+      this.showSpinner = false;
+    }, 500);
+    })
+  }
+
+  openAddDialog() {
+    const dialogRef = this.dialog.open(UserCreateComponent);
+    dialogRef.afterClosed().subscribe(res => {
+      this.showSpinner = true;
+      setTimeout(() => {
+      console.log('Adicionando usuário...')
       this.refreshUsers();
       this.showSpinner = false;
     }, 500);

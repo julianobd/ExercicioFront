@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -26,7 +27,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule
   ],
   exports: [
     MatCardModule,
@@ -38,7 +40,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule { }
