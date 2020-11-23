@@ -59,11 +59,16 @@ constructor(
 
   refresh(){
     this.expMachinesService.getAll()
-    .subscribe(data =>  {
+    .subscribe(data => {
+      data.map(data => {
+        data.hourStart = this.myDateParser(data.hourStart);
+        data.hourEnds = this.myDateParser(data.hourEnds);
+      })
+      this.tableIsLoaded = true;
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.changeDetectorRef.detectChanges();
-      this.tableIsLoaded = true;
+      
     });
   };
 
@@ -88,6 +93,16 @@ constructor(
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
     return `${this.selection.isSelected(i) ? 'deselect' : 'select'} row ${i}`;
+  }
+
+  myDateParser(dateStr : string) : string {
+    // 2018-01-01T12:12:12.123456; - converting valid date format like this
+
+    let date = '2020-01-01';
+    let time = dateStr.substring(0,5);
+    let millisecond = dateStr.substring(9)
+    let validDate =  time;
+    return validDate
   }
 
   

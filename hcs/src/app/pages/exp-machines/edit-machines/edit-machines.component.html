@@ -5,7 +5,7 @@
     <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
 
         <div class="form">
-          <mat-form-field color="accent">
+          <mat-form-field color="primary">
             <input matInput #input class="form-control" placeholder="Descrição" [(ngModel)]="expMach.description" name="descricao" required >
 
             <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
@@ -14,7 +14,7 @@
 
         
         <div class="form">
-            <mat-form-field color="accent">
+            <mat-form-field color="primary">
               <input matInput #input class="form-control" placeholder="Experiência por minuto" [(ngModel)]="expMach.expEachMinute" name="expEachMinute" required >
               <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
@@ -29,17 +29,16 @@
             
           </div>
         
-
           
           <div class="form">
-            <mat-form-field color="accent">
+            <mat-form-field color="primary">
               <input matInput #input class="form-control" placeholder="Hora de início" [(ngModel)]="expMach.hourStart" name="hourStart"  required >
               <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
           </div>
         
           <div class="form">
-            <mat-form-field color="accent">
+            <mat-form-field color="primary">
               <input matInput #input class="form-control" placeholder="Hora do fim" [(ngModel)]="expMach.hourEnds" name="hourEnds" required >
               <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
@@ -47,7 +46,7 @@
         
 
           <!-- <div class="form">
-            <mat-form-field color="accent">
+            <mat-form-field color="primary">
               <input matInput #input class="form-control" placeholder="enabled" [(ngModel)]="expMach.enabled" name="enabled" required >
               <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
@@ -61,8 +60,6 @@
               </mat-radio-group>
            
           </div>
-
-
 
         <div mat-dialog-actions>
             <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="save(expMach.id)">Salvar</button>
