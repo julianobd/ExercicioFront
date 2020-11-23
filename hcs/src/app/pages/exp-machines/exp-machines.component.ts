@@ -25,6 +25,7 @@ export class ExpMachinesComponent implements OnInit {
   expMachines: ExpMachines[];
   dataSource = new MatTableDataSource<ExpMachines>();
   selection = new SelectionModel<ExpMachines>(true, []);
+  tableIsLoaded: boolean;
 
 constructor(
   private expMachinesService: ExpMachinesService,
@@ -38,27 +39,31 @@ constructor(
 
   ngOnInit(): void {
   this.refresh();
+  this.tableIsLoaded = false;
   }
 
   openDialog(expMach, id: string, description: string, expEachMinute: string, automaticStart: boolean, hourStart: number, hourEnds: number, enabled: boolean){
     console.log(expMach);
     const dialogRef = this.dialog.open(EditMachinesComponent, {
       data: {expMach: expMach, id: id, description: description, expEachMinute: expEachMinute, automaticStart: automaticStart, hourStart: hourStart, hourEnds: hourEnds, enabled: enabled},
-      backdropClass: 'backdropBackground'
+      panelClass: 'custom-dialog-container' 
+      
     });
-    dialogRef.afterClosed().subscribe(results => setTimeout(() =>{
+    dialogRef.afterClosed().subscribe(results => { 
+      setTimeout(() =>{
       this.refresh();
-    }, 1000)
-    )
-    
+        }, 600)
+      }
+    );
   };
 
   refresh(){
     this.expMachinesService.getAll()
-    .subscribe(response =>  {
-      this.dataSource = new MatTableDataSource(response);
+    .subscribe(data =>  {
+      this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.changeDetectorRef.detectChanges();
+      this.tableIsLoaded = true;
     });
   };
 
@@ -82,7 +87,7 @@ constructor(
     if (!i) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
-    return `${this.selection.isSelected(i) ? 'deselect' : 'select'} row ${i + 1}`;
+    return `${this.selection.isSelected(i) ? 'deselect' : 'select'} row ${i}`;
   }
 
   

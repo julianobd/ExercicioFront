@@ -3,17 +3,26 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: fit-content;
+    max-width: 60%;
+    min-width: 30%;
     margin: auto;
     margin-top: 20px;
     justify-content: center;
     opacity: 0.6;
   }
 
-.mat-toolbar{
-  background-color: rgba(0, 154, 255, 0.8);
+  .spinner{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
   }
 
+.mat-toolbar{
+  background-color: rgba(0, 154, 255, 0.8);
+  min-width: 600px;
+  }
+
+  
 span{
     font-weight: 700;
     font-size: 24px;
@@ -50,9 +59,19 @@ span{
       text-align: center;
       color: rgba( #000000, 1.0);
       font-weight: 400;
-      
+
   }
 
+  .description{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .custom-dialog-container .mat-dialog-container {
+    border-radius: 10px !important;
+    background-color: transparent !important;
+  }
   
 
   
