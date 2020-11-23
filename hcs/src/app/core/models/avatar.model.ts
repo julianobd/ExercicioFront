@@ -19,6 +19,35 @@ export interface ResponseAvatar {
 }
 
 //Update
-export interface ResponseAvatarEdit {
 
+export interface RequestAvatar {
+  health: number;
+  armor: number;
+  hungry: number;
+  title: string;
+  jobId: string;
+  leader: boolean;
+  experience: number;
+  money: number;
+  statusPoint: number;
+  strength: number;
+  endurance: number;
+  agility: number;
+  accuracy: number;
+}
+
+export interface ResponseAvatarUpdate {
+  health: number;
+  armor: number;
+  hungry: number;
+  title: string;
+  jobId: string;
+  leader: boolean;
+  experience: number;
+  money: number;
+  statusPoint: number;
+  strength: number;
+  endurance: number;
+  agility: number;
+  accuracy: number;
 }

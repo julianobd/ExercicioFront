@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MaterialModule } from 'src/app/material/material.module';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private material: MaterialModule) { }
 
   ngOnInit(): void {
   }
