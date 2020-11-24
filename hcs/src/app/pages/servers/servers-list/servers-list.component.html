@@ -14,13 +14,14 @@
           </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let srvs-list of srvs" >
-              <td>{{id}}</td>
-              <td>{{name}}</td>
-              <td>{{shared}}</td>
-              <td>{{hasDisease}}</td>
-              <td>{{initialMoney}}</td>
-              <td>{{initialStatsPoints}}</td>
+          <tr *ngFor="let srvsList of serversListing" >
+              <td>{{srvsList.id}}</td>
+              <td>{{srvsList.name}}</td>
+              <td>{{srvsList.shared}}</td>
+              <td>{{srvsList.hasDisease}}</td>
+              <td>{{srvsList.expTable}}</td>
+              <td>{{srvsList.initialMoney}}</td>
+              <td>{{srvsList.initialStatsPoints}}</td>
               <td class="align-center" style="white-space: nowrap;width: 1%;">
                 <button type="button"  class="btn btn-outline-dark btn-sm mr-1">Editar Servidor</button>
                 <button type="button" class="btn btn-outline-dark btn-sm mr-1">Selecionar Servidor</button>
@@ -32,3 +33,4 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
 </div>
+

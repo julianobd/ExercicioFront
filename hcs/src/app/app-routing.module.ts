@@ -5,7 +5,8 @@ import { ServersListComponent } from './pages/servers/servers-list/servers-list.
 
 const routes: Routes = [
   { path:'', component: AppComponent },
-  { path:'lista-servidores', component: ServersListComponent }
+  { path:'lista-servidores', component: ServersListComponent },
+
 ];
 
 @NgModule({

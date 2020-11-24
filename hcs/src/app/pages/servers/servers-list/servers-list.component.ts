@@ -1,7 +1,6 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-//import { getServers } from 'dns';
+import { ServerListing } from './../../../core/services/server.model';
+import { OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ServerService } from 'src/app/core/services/server.service';
 
 
@@ -12,26 +11,23 @@ import { ServerService } from 'src/app/core/services/server.service';
 })
 export class ServersListComponent implements OnInit {
 
-  srvs: ServerService[];
-
-  id:string;
-  name:string;
-  token:string;
-  shared:boolean;
-  hasDisease:boolean;
-  initialMoney:number;
-  initialStatsPoints:number;
+  serversListing=[];
 
 
   constructor(
     private serverService: ServerService
-  ){}
+  ){
 
-  ngOnInit(): void {
-    this.serverService.getServerstoken()
-    .subscribe(servers =>{
-      console.log(servers)
+    this.serverService.listServers().subscribe(data =>{
+      console.log(data)
+      this.serversListing = data
     })
+
   }
 
-}
+  ngOnInit(): void {
+
+  }
+
+  }
+
