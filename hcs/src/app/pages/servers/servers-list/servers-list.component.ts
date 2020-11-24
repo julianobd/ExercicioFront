@@ -10,10 +10,25 @@ export class ServersListComponent implements OnInit {
 
   itens: any;
 
+  displayedColumns: string[] = [
+    'imageId',
+    'name',
+    'health',
+    'vest',
+    'experience',
+    'hungry',
+    'money',
+    'statusPoint',
+    'isInitial',
+    'quantityInitial',
+    'action'
+  ]
+
   constructor(private ServicesEditService: ServicesEditService) { }
 
   ngOnInit(): void {
-    this.ServicesEditService.getServer()
+    this.ServicesEditService
+      .getServer()
       .subscribe(itens => this.itens = itens.availableItems)
 
   }

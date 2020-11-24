@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
-import { RequestAvatar, ResponseAvatar, ResponseAvatarUpdate } from '../models/avatar.model';
+import { Avatar, RequestAvatar, ResponseAvatar, ResponseAvatarUpdate } from '../models/avatar.model';
 
 
 @Injectable({
@@ -13,7 +13,6 @@ export class AvatarListService {
   private url = 'http://hcs.dev4.com.br/api/Avatar/ListAvatars';
 
   userToken: string = '20b314e0-6589-4738-8bf8-ca9cdf57f45e-ecb9ee4f-d890-49b0-9a64-ecf5d45390ce';
-
   serverId: string = '00c0808b-cb1c-4802-92dd-1500833bc264';
 
   id: string = '';
@@ -35,5 +34,7 @@ export class AvatarListService {
 
     return this.http.put<ResponseAvatarUpdate>(_url, request);
   }
+
+
 
 }

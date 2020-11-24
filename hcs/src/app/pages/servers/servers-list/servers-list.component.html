@@ -1,16 +1,80 @@
-<h1>Servidores</h1>
+<div class="container">
 
-  <ul *ngFor="let item of itens">
-    <li> {{item.id}} </li>
-    <li> {{item.name}} </li>
-    <li> {{item.imageId}} </li>
-    <li> {{item.name}} </li>
-    <li> {{item.isInitial}} </li>
-    <li> {{item.vest}} </li>
-    <li> {{item.experience}} </li>
-    <li> {{item.hungry}} </li>
-    <li> {{item.money}} </li>
-    <li> {{item.statusPoint}} </li>
-    <li> {{item.quantityInitial}} </li>
-  </ul>
+  <div class="table">
+
+    <mat-toolbar>
+      <span>ITENS</span>
+    </mat-toolbar>
+
+    <mat-table [dataSource]="itens" class="mat-elevation-z4">
+
+      <ng-container matColumnDef="imageId">
+        <th mat-header-cell *matHeaderCellDef> Imagem </th>
+        <td mat-cell *matCellDef="let row"> {{row.imageId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="health">
+        <th mat-header-cell *matHeaderCellDef> Saúde </th>
+        <td mat-cell *matCellDef="let row"> {{row.health}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="vest">
+        <th mat-header-cell *matHeaderCellDef> Fome </th>
+        <td mat-cell *matCellDef="let row"> {{row.vest}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="experience">
+        <th mat-header-cell *matHeaderCellDef> Experiência </th>
+        <td mat-cell *matCellDef="let row"> {{row.experience}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hungry">
+        <th mat-header-cell *matHeaderCellDef> Fome </th>
+        <td mat-cell *matCellDef="let row"> {{row.hungry}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="money">
+        <th mat-header-cell *matHeaderCellDef> Preço </th>
+        <td mat-cell *matCellDef="let row"> {{row.money}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="statusPoint">
+        <th mat-header-cell *matHeaderCellDef> Pontos de Status </th>
+        <td mat-cell *matCellDef="let row"> {{row.statusPoint}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="isInitial">
+        <th mat-header-cell *matHeaderCellDef> Inicial </th>
+        <td mat-cell *matCellDef="let row"> {{row.isInitial}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantityInitial">
+        <th mat-header-cell *matHeaderCellDef> Quantidade Inicial </th>
+        <td mat-cell *matCellDef="let row"> {{row.quantityInitial}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let row">
+          <span class="material-icons"> edit </span>
+          <span class="material-icons"> delete </span>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </mat-table>
+
+  </div>
+
+</div>
+
+
 

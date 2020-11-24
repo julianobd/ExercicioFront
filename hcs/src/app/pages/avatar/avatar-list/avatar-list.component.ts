@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ResponseAvatar } from 'src/app/core/models/avatar.model';
 import { AvatarListService } from '../../../core/services/avatar-list.service'
+
 
 @Component({
   selector: 'app-avatar-list',
@@ -10,13 +11,31 @@ import { AvatarListService } from '../../../core/services/avatar-list.service'
 })
 export class AvatarListComponent implements OnInit {
 
-  reponseAvatar: ResponseAvatar;
 
-  constructor(private avatarService: AvatarListService) { }
+  avatar: ResponseAvatar[];
+
+  displayedColumns: string[] = ['name', 'health', 'hungry', 'armor', 'money', 'experience', 'title', 'edit']
+
+
+
+  responseAvatar: ResponseAvatar;
+
+  constructor(
+    private avatarService: AvatarListService
+    ) { }
 
   ngOnInit(): void {
     this.avatarService
       .getAvatar()
-      .subscribe(res => this.reponseAvatar = res)
+      .subscribe(res => this.responseAvatar = res)
   }
+
+
+
+
+
+
+
+
+
 }

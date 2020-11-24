@@ -1,0 +1,63 @@
+* {
+  padding:0;
+  margin:0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+  margin-top: 100px;
+  justify-content: center;
+  opacity: 0.6;
+}
+
+.mat-toolbar {
+  background-color: rgba(0, 154, 255, 0.8);
+  span{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    margin-left: 14px;
+    color: #FFFFFF;
+  }
+}
+
+.mat-table {
+  width: 100%;
+}
+
+.mat-header-cell{
+  padding: 20px 40px 0px 0px;
+}
+
+th.mat-header-cell {
+  text-align: center;
+  font-weight: bold;
+  font-family: roboto;
+  font-size: 13px;
+  color: rgba(#000000, 1.0);
+  line-height: 14px;
+}
+
+
+td.mat-cell {
+  text-align: center;
+  font-weight: 400;
+  font-family: roboto;
+  font-size: 13px;
+  color: rgba( #000000, 1.0);
+  line-height: 14px;
+  padding-top: 5px;
+}
+
+.mat-cell {
+  padding: 0px 20px 8px 0;
+  justify-content: center;
+}
+
+.material-icons{
+  margin-right: 5px;
+
+}
