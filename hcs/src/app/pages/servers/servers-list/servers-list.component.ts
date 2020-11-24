@@ -11,9 +11,15 @@ import { ServerService } from 'src/app/core/services/server.service';
 })
 export class ServersListComponent implements OnInit {
 
+  pages:number = 1;
+  totalPages: number;
   serversListing=[];
 
 
+  public labels: any = {
+    previousLabel: 'Anterior',
+    nextLabel:'Próximo'
+  }
   constructor(
     private serverService: ServerService
   ){
@@ -21,6 +27,7 @@ export class ServersListComponent implements OnInit {
     this.serverService.listServers().subscribe(data =>{
       console.log(data)
       this.serversListing = data
+      this.totalPages = data.length
     })
 
   }

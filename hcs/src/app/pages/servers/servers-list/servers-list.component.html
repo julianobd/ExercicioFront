@@ -21,7 +21,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let srvsList of serversListing" >
+            <tr *ngFor="let srvsList of serversListing | paginate: {id: 'listing_pagination',
+              itemsPerPage: 5,
+              currentPage: pages,
+              totalItems: totalPages
+            }
+              " >
                 <td>{{srvsList.id}}</td>
                 <td>{{srvsList.name}}</td>
                 <td>{{srvsList.shared}}</td>
@@ -37,10 +42,21 @@
                   </span>
                 </td>
             </tr>
-        </tbody>
-  </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </tbody>
+
+    </table>
+          <div class="paginator">
+              <pagination-controls
+              id="listing_pagination"
+              [previousLabel]="labels.previousLabel"
+              [nextLabel]="labels.nextLabel"
+              maxSize="5"
+              directionLinks="true"
+              (pageChange)="pages = $event">
+              </pagination-controls>
+          </div>
+
   </div>
 </div>
 

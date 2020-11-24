@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatTableModule,
     HttpClientModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NgxPaginationModule
   ],
   providers: [
     MatTableDataSource
