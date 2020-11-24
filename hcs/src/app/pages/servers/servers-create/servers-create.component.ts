@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ServersCreateServiceService } from './../../../core/services/servers-create-service.service';
 import { ServerIdService } from './../../../core/services/server-id.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class ServersCreateComponent implements OnInit {
 
   form:FormGroup
 
-  constructor(private serversCreateServiceService:ServersCreateServiceService,private fb:FormBuilder, private serverIdService:ServerIdService) {
+  constructor(private serversCreateServiceService:ServersCreateServiceService,private fb:FormBuilder, private serverIdService:ServerIdService,private router: Router) {
       this.form = this.fb.group({
 
         name:'',
@@ -29,8 +30,14 @@ export class ServersCreateComponent implements OnInit {
   }
   createServers(){
 
-  return this.serversCreateServiceService.saveServer(this.form.value).subscribe((res:any)=>this.serverIdService.setServerId(res))
-
+  return this.serversCreateServiceService.saveServer(this.form.value)
+  .subscribe(
+  (res:any) =>
+  {
+    this.serverIdService.setServerId(res);
+    this.router.navigate(['../addExpTable']);
   }
+  );
+}
 
 }
