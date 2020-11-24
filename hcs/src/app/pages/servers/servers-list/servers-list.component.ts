@@ -11,6 +11,7 @@ export class ServersListComponent implements OnInit {
   itens: any;
 
   displayedColumns: string[] = [
+    'select',
     'imageId',
     'name',
     'health',
