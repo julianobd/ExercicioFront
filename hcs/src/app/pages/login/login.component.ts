@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
+import { Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { LoginService } from './../../core/services/login.service';
 import { TokenService } from './../../core/services/token.service';
 

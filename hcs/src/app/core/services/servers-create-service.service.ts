@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServersCreateServiceService {
 
-  //token:string = '2141f6cc-412e-4106-af81-bb6409f30701-d89d432b-16e2-4141-ae12-dcb5c05475e3'
+  //token:string = '2b8fcec6-6477-412a-a000-b05acbcb3dd0-440ad0f8-9257-4236-9db4-207704fddc9a'
   constructor(private http:HttpClient, private tokenService:TokenService) {
 
   }

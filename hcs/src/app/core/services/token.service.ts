@@ -8,6 +8,7 @@ export class TokenService {
 
   private token:string;
 
+
   constructor(private http:HttpClient) {
 
   }
@@ -17,11 +18,14 @@ export class TokenService {
     this.token = token;
     console.log(token)
   }
+
   getToken(){
 
     return this.token;
 
   }
+
+
 
 }
 
