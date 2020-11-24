@@ -1,9 +1,10 @@
+import { SnackbarService } from './../../core/services/snackbar.service';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { User } from './../../core/models/user.model';
 import { UsersService } from './../../core/services/users.service';
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -16,7 +17,7 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -42,14 +43,14 @@ export class UsersComponent implements OnInit {
   // Seleciona todas as linhas se nem todas estiverem selecionadas, caso contrário, limpa a seleção
   masterToggle() {
     this.isAllSelected() ?
-      this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
   // O LABEL para a caixa de seleção na linha passada.
   checkboxLabel( row?: User ): string {
     if (!row) {
-      return `${this.isAllSelected() ? 'select' : 'deslect'}all`;
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.name + 1}`;
   }
@@ -58,12 +59,16 @@ export class UsersComponent implements OnInit {
     private usersService: UsersService,
     private router: Router,
     public dialog: MatDialog,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private snackBar: SnackbarService
   ) { }
 
   // Carrega todos os usuários
   ngOnInit(): void {
     this.refreshUsers()
+  }
+
+  ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
@@ -101,6 +106,7 @@ export class UsersComponent implements OnInit {
           console.log('Excluindo usuário...')
           this.refreshUsers();
           this.showSpinner = false;
+          this.snackBar.showMessage('Usuário deletado!')
         }, 500);
       }
     })
@@ -108,22 +114,8 @@ export class UsersComponent implements OnInit {
 
   // Abre o Dialog para adicionar um usuário
   openAddDialog() {
-    const dialogRef = this.dialog.open(UserCreateComponent);
-    dialogRef.afterClosed().subscribe(res => {
-      if (res == true) {
-        this.showSpinner = true;
-          setTimeout(() => {
-          console.log('Adicionando usuário...')
-          this.refreshUsers();
-          this.showSpinner = false;
-        }, 500);
-      }
-    })
-  }
-
-  openEditDialog(id: string, name: string, email: string, password: string, permission: number) {
-    const dialogRef = this.dialog.open(UserEditComponent, {
-      data: {id: id, name: name, email: email, password: password, permission: permission}
+    const dialogRef = this.dialog.open(UserCreateComponent, {
+      panelClass: 'custom-dialog'
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res == true) {
@@ -132,6 +124,25 @@ export class UsersComponent implements OnInit {
           console.log('Adicionando usuário...')
           this.refreshUsers();
           this.showSpinner = false;
+          this.snackBar.showMessage('Usuário adicionado!')
+        }, 500);
+      }
+    })
+  }
+
+  // Abre o Dialog para editar o usuário
+  openEditDialog(id: string, name: string, email: string, password: string, permission: number) {
+    const dialogRef = this.dialog.open(UserEditComponent, {
+      data: {id: id, name: name, email: email, password: password, permission: permission}
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res == true) {
+        this.showSpinner = true;
+          setTimeout(() => {
+          console.log('Atualizando usuário...')
+          this.refreshUsers();
+          this.showSpinner = false;
+          this.snackBar.showMessage('Usuário atualizado!')
         }, 500);
       }
     })
@@ -157,7 +168,7 @@ export class UsersComponent implements OnInit {
 
 // @Component({
 //   selector: 'spinner-component',
-//   template: '<mat-spinner></mat-spinner>'
+//   template: '<mat-spinner matDialogContent></mat-spinner>'
 // })
 
 // export class SpinnderComponent {}

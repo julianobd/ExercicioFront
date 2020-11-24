@@ -34,7 +34,6 @@ export class UserCreateComponent implements OnInit {
     this.usersService.addUser(this.user).subscribe(data => {
     console.log('produto criado')
     console.log(data)
-    this.router.navigate(['/users'])
     })
   }
 

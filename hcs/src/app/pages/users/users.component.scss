@@ -19,7 +19,7 @@ mat-card-header {
   border-top-right-radius: 4px;
   display: flex;
   justify-content: space-between;
-  background: rgba(0, 154, 255, 0.7)
+  background: rgba(0, 154, 255, 0.8)
 }
 
 mat-card-title, h1{
@@ -40,6 +40,11 @@ mat-card-title, h1{
   margin-right: 30px;
 }
 
+.btn-2 {
+  background-color: #05BC4E;
+  color: white;
+}
+
 table {
   width: 100%;
   min-width: 500px;
@@ -49,7 +54,7 @@ table {
 }
 
 th {
-  font-size: 1em;
+  font-size: 1.1em;
   font-weight: bold;
   color: rgb(59, 59, 59);
 }
