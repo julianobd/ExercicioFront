@@ -13,7 +13,7 @@ mat-card-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 div .btn-x {
@@ -31,13 +31,26 @@ h1{
   line-height: 40px;
 }
 
+form {
+  padding-bottom: 5px;
+}
+
 mat-form-field {
   width: 100%;
+  padding-top: 5px;
+}
+
+.radio {
+  padding: 15px 0px;
+}
+
+mat-radio-button {
+  margin-left: 17px;
 }
 
 .btn {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
   height: 50px;
   font-size: 27px;
   letter-spacing: 2px;

@@ -31,10 +31,11 @@ export class UserCreateComponent implements OnInit {
 
   // Função para adicionar usuário
   addUser(): void {
-    this.usersService.addUser(this.user).subscribe(data => {
-    console.log('produto criado')
-    console.log(data)
-    })
+    // this.usersService.addUser(this.user).subscribe(data => {
+    // console.log('produto criado')
+    // console.log(data)
+    // })
+    console.log(this.user)
   }
 
   // Cancelar a tela de edição de usuário
@@ -43,7 +44,7 @@ export class UserCreateComponent implements OnInit {
   }
 
 
-  getErrorMsg() {
+  getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'Preencha o campo'
     }

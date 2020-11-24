@@ -16,45 +16,76 @@
     </h1>
   </mat-card-header>
   <mat-dialog-content>
-    <form>
+    <form #f="ngForm">
       <div>
         <mat-form-field>
           <mat-label>Nome</mat-label>
-          <input type="text" matInput placeholder="" name="name" [(ngModel)]="user.name" required>
+          <input type="text" matInput placeholder="" name="name" [(ngModel)]="user.name" required #name="ngModel">
+          <mat-error *ngIf="name.invalid">
+            <mat-error *ngIf="name.errors.required">Nome obrigatório</mat-error>
+          </mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
           <mat-label>Email</mat-label>
-          <input type="email" matInput placeholder="pat@example.com" name="email" [(ngModel)]="user.email" required>
+          <input
+            type="email"
+            matInput placeholder="pat@example.com"
+            name="email"
+            pattern="^\S+@\S+$"
+            [(ngModel)]="user.email"
+            #email="ngModel"
+            required
+          >
           <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="email.invalid">
+            <mat-error *ngIf="email.errors.required">E-mail obrigatório</mat-error>
+            <mat-error *ngIf="email.errors.pattern">E-mail inválido</mat-error>
+          </mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
           <mat-label>Senha</mat-label>
-          <input type="password" matInput placeholder="" name="password" [(ngModel)]="user.password" required>
+          <input type="password" matInput placeholder="" name="password" [(ngModel)]="user.password" #password="ngModel" required>
           <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="password.invalid">
+            <mat-error *ngIf="password.errors.required">Senha obrigatório</mat-error>
+          </mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
           <mat-label>Confirmar Senha</mat-label>
-          <input type="password" matInput placeholder="" required>
+          <input type="password" matInput placeholder="" #confirm required>
           <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="confirm.invalid">
+            <mat-error *ngIf="confirm.errors.required">Confirme sua senha</mat-error>
+          </mat-error>
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field>
-          <mat-label>Permissão</mat-label>
-          <input type="number" matInput placeholder="" name="permission" [(ngModel)]="user.permission" required>
-          <mat-icon matSuffix></mat-icon>
-        </mat-form-field>
+      <div class="radio">
+        <label>Nível de permissão:</label>
+        <mat-radio-group name="permission" [(ngModel)]="user.permission" #permission required>
+          <mat-radio-button value="0">0</mat-radio-button>
+          <mat-radio-button value="1">1</mat-radio-button>
+          <mat-radio-button value="2">2</mat-radio-button>
+        </mat-radio-group>
       </div>
     </form>
   </mat-dialog-content>
 
   <mat-dialog-actions>
-    <button type="button" class="btn" [mat-dialog-close]="true" mat-raised-button (click)="addUser()">Criar Usuário</button>
+    <button
+      type="submit"
+      class="btn"
+      [mat-dialog-close]="true"
+      mat-raised-button
+      [disabled]="!f.valid"
+      (click)="addUser()"
+    >
+      Criar Usuário
+    </button>
   </mat-dialog-actions>
 </div>
