@@ -31,11 +31,11 @@ export class UserCreateComponent implements OnInit {
 
   // Função para adicionar usuário
   addUser(): void {
-    // this.usersService.addUser(this.user).subscribe(data => {
-    // console.log('produto criado')
-    // console.log(data)
-    // })
-    console.log(this.user)
+    this.usersService.addUser(this.user).subscribe(data => {
+    console.log('produto criado')
+    console.log(data)
+    })
+    // console.log(this.user)
   }
 
   // Cancelar a tela de edição de usuário
