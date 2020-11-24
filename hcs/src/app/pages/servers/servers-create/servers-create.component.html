@@ -4,36 +4,53 @@
     <form class="form" (ngSubmit)="createServers()" [formGroup]="form">
       <mat-form-field class="example-full-width">
         <mat-label>Nome</mat-label>
-        <input matInput class="form-control" formControlName="name"/>
+        <input matInput class="form-control" formControlName="name" />
       </mat-form-field>
 
-      <mat-radio-group class="radio-group" aria-label="Select an option"  formControlName="shared">
+      <mat-radio-group
+        class="radio-group"
+        aria-label="Select an option"
+        formControlName="shared"
+      >
         Compartilhado
         <mat-radio-button class="radio" [value]="true">sim</mat-radio-button>
         <mat-radio-button [value]="false">não</mat-radio-button>
       </mat-radio-group>
 
-      <mat-radio-group class="radio-group" aria-label="Select an option"  formControlName="hasDisease">
+      <mat-radio-group
+        class="radio-group"
+        aria-label="Select an option"
+        formControlName="hasDisease"
+      >
         Doença
         <mat-radio-button class="radio" [value]="true">sim</mat-radio-button>
         <mat-radio-button [value]="false">não</mat-radio-button>
       </mat-radio-group>
 
-
       <mat-form-field>
         <mat-label>Dinheiro Inicial</mat-label>
-        <input matInput type="number" class="form-control" formControlName="initialMoney" />
+        <input
+          matInput
+          type="number"
+          class="form-control"
+          formControlName="initialMoney"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Ponto de status Inicial</mat-label>
-        <input matInput type="number" class="form-control" formControlName="initialStatsPoints" />
+        <input
+          matInput
+          type="number"
+          class="form-control"
+          formControlName="initialStatsPoints"
+        />
       </mat-form-field>
       <section class="btn-section">
         <div class="example-label"></div>
         <div class="example-button-row">
-          <button mat-button >CRIAR</button>
-         <button routerLink="../addExpTable"> AddExpTable</button>
+          <button mat-button>CRIAR</button>
+          <button routerLink="../addExpTable">AddExpTable</button>
         </div>
       </section>
     </form>

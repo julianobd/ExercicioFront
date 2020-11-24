@@ -1,21 +1,31 @@
-<section class="container">
-  <button (click)="userId()">Add exp Table</button>
-<form class="form" [formGroup]="form" (ngSubmit)="saveExpTable()">
-     <div>
-    <mat-form-field class="example-full-width">
-      <mat-label>Título</mat-label>
-      <input matInput class="form-control" value="title" formControlName="title"/>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Nível</mat-label>
-      <input matInput class="form-control" type="number" value="level" formControlName="level"/>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Experiência</mat-label>
-      <input matInput class="form-control" type="number" value="exp" formControlName="exp"/>
-    </mat-form-field>
-    <button type="submit" >Atualizar</button>
-  </div>
-
-  </form>
+<section class="box">
+  <mat-card class="example-card">
+    <!--<button (click)="getserverId()">Add exp Table</button>-->
+    <mat-card-title>ADICIONAR TABELA <br/>DE<br/>EXPERIÊNCIA</mat-card-title>
+    <form class="form" [formGroup]="form" (ngSubmit)="saveExpTable()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Título</mat-label>
+        <input matInput class="form-control" formControlName="title" />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nível</mat-label>
+        <input
+          matInput
+          class="form-control"
+          type="number"
+          formControlName="level"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Experiência</mat-label>
+        <input
+          matInput
+          class="form-control"
+          type="number"
+          formControlName="exp"
+        />
+      </mat-form-field>
+      <button type="submit">Adicionar</button>
+    </form>
+  </mat-card>
 </section>

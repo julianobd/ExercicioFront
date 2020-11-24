@@ -25,7 +25,7 @@ export class AddExpTableComponent implements OnInit {
   }
 
 
-    userId(){
+    getserverId(){
       this.addExpTable.getId(this.form.value).subscribe((res:any)=>{console.log(res)
       this.serverId = res;
       })
