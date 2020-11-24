@@ -1,33 +1,43 @@
   <div class="container">
   <div class="mat-elevation-z8">
-    <table class="table table-hover">
-
-      <thead class="t-header">
-          <tr class="bg-dark text-light">
-              <th>#</th>
-              <th>Nome</th>
-              <th>Compartilhado</th>
-              <th>Doenças</th>
-              <th>Dinheiro inicial</th>
-              <th>Status inicial</th>
-              <th>Ações</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let srvsList of serversListing" >
-              <td>{{srvsList.id}}</td>
-              <td>{{srvsList.name}}</td>
-              <td>{{srvsList.shared}}</td>
-              <td>{{srvsList.hasDisease}}</td>
-              <td>{{srvsList.expTable}}</td>
-              <td>{{srvsList.initialMoney}}</td>
-              <td>{{srvsList.initialStatsPoints}}</td>
-              <td class="align-center" style="white-space: nowrap;width: 1%;">
-                <button type="button"  class="btn btn-outline-dark btn-sm mr-1">Editar Servidor</button>
-                <button type="button" class="btn btn-outline-dark btn-sm mr-1">Selecionar Servidor</button>
-              </td>
-          </tr>
-      </tbody>
+    <table class=".mat-elevation-z8">
+      <caption class="caption">
+        <span id="servidores">SERVIDORES</span>
+        <button class="add" mat-button>
+          <span class="material-icons">
+          add_circle_outline
+        </span>Adicionar
+      </button>
+    </caption>
+        <thead >
+            <tr id="t-header" >
+                <th>#</th>
+                <th>Nome</th>
+                <th>Compartilhado</th>
+                <th>Doenças</th>
+                <th>Dinheiro inicial</th>
+                <th>Status inicial</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let srvsList of serversListing" >
+                <td>{{srvsList.id}}</td>
+                <td>{{srvsList.name}}</td>
+                <td>{{srvsList.shared}}</td>
+                <td>{{srvsList.hasDisease}}</td>
+                <td>{{srvsList.initialMoney}}</td>
+                <td>{{srvsList.initialStatsPoints}}</td>
+                <td class="align-center" style="white-space: nowrap;width: 1%;">
+                  <span  >
+                    <a routerLink=""  ><img class="icone" src="assets/edit.png" alt=""></a>
+                  </span>
+                  <span  >
+                    <a routerLink=""  ><img class="icone" src="assets/enter.png" alt=""></a>
+                  </span>
+                </td>
+            </tr>
+        </tbody>
   </table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

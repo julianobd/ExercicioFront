@@ -38,7 +38,7 @@ export class ServerService {
     }
 
     listServers(){
-      return this.http.get(this.apiUrl)
+      return this.http.get<any[]>(this.apiUrl)
     }
    }
 

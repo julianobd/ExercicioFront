@@ -9,11 +9,15 @@
 }
 
 .mat-elevation-z8 {
-  width: 50%;
+  width: 60%;
   position: relative;
   margin: 0 auto;
   top: 30%;
+  height: 340px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+
 table{
   width:100%;
   background:none;
@@ -21,18 +25,25 @@ table{
 td{
   background-color: white;
   opacity: 0.8;
+  padding:10px;
 }
-/*
-.t-header{
+
+tbody {
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#t-header{
   background-color: white;
   opacity: 0.8;
-  font-size:18px;
+
 }
-*/
+
 .mat-button{
   float: right;
 }
-.t-header{
+.caption{
   background: rgba(0, 154, 255, 0.8);
   color: white;
 }
@@ -49,4 +60,9 @@ td{
   background-color:#05BC4E;
   margin:10px;
 
+}
+.icone{
+  height:15px;
+  width: auto;
+  padding:5px;
 }
