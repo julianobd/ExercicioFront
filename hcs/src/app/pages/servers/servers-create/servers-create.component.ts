@@ -35,7 +35,7 @@ export class ServersCreateComponent implements OnInit {
   (res:any) =>
   {
     this.serverIdService.setServerId(res);
-    //this.router.navigate(['../addExpTable']);
+    this.router.navigate(['../addExpTable']);
   }
   );
 }

@@ -20,15 +20,11 @@ export class AddExpTableService {
     return this.http.get(`http://hcs.dev4.com.br/api/Servers/GetServer/${userToken}/${serverId}`)
   }
 
-  editExpTable(title,level,exp){
-    const params = {
-      title: title,
-      level: level,
-      exp:exp
-    }
+  editExpTable(experience:[]){
+
     const userToken = this.tokenService.getToken();
     const serverId = this.serverIdService.getServerId();
-    return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditExpTable/${userToken}/${serverId}`,params)
+    return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditExpTable/${userToken}/${serverId}`,experience)
   }
 
 

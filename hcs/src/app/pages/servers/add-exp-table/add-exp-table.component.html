@@ -1,34 +1,4 @@
-<!--<section class="box">
-  <mat-card class="example-card">
-    <mat-card-title>ADICIONAR TABELA <br/>DE<br/>EXPERIÊNCIA</mat-card-title>
-    <form class="form" [formGroup]="form" (ngSubmit)="saveExpTable()">
-      <mat-form-field class="example-full-width">
-        <mat-label>Título</mat-label>
-        <input matInput class="form-control" formControlName="title" />
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Nível</mat-label>
-        <input
-          matInput
-          class="form-control"
-          type="number"
-          formControlName="level"
-        />
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Experiência</mat-label>
-        <input
-          matInput
-          class="form-control"
-          type="number"
-          formControlName="exp"
-        />
-      </mat-form-field>
-      <button type="submit">Adicionar</button>
-    </form>
-  </mat-card>
-</section>-->
-<form class="form-inline" (ngSubmit)="addrowTable()">
+<form class="form-inline" (ngSubmit)="addrowTable()" >
   <div class="form-group">
     <label for="title">Título</label>
     <input type="text" class="form-control" id="title" name="title" [(ngModel)]="model.title" >
@@ -75,10 +45,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let experience of experience" >
+    <tr *ngFor="let experience of experience; let i=index" >
       <td>{{ experience.title }}</td>
       <td>{{ experience.level }}</td>
       <td>{{ experience.exp }}</td>
+      <td>
+        <a class="btn btn-success" >Edit</a>
+        <a class="btn btn-danger" (click)="delrowTable(i)">Delete</a>
+      </td>
     </tr>
   </tbody>
 </table>
+
+<a class="btn btn-success" (click)="saveExpTable()">Enviar</a>
