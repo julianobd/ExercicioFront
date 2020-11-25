@@ -13,11 +13,13 @@ export class UserCreateComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
+  confirm: string = '';
+
   user: User = {
     name: '',
     email: '',
     password: '',
-    permission: 0,
+    permission: 2,
     serverId: '6435FB94-2328-4F34-B590-68441F8BD936'
   }
 

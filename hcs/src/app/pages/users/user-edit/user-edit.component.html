@@ -1,52 +1,85 @@
+<button class="btn-x" mat-dialog-close>X</button>
+
 <div class="main">
-  <div class="btn-x-header">
-    <button class="btn-x" mat-button mat-dialog-close>X</button>
-  </div>
   <mat-card-header>
     <h1>
       EDITAR USUÁRIO
     </h1>
+    <div class="btn-x-header">
+    </div>
   </mat-card-header>
   <mat-dialog-content>
-    <form>
+    <form #f="ngForm">
       <div>
         <mat-form-field>
           <mat-label>Nome</mat-label>
-          <input type="text" matInput placeholder="" name="name" [(ngModel)]="user.name" required>
+          <input type="text" matInput placeholder="" name="name" [(ngModel)]="user.name" required #name="ngModel">
+          <mat-error *ngIf="name.invalid">
+            <mat-error *ngIf="name.errors.required">Nome obrigatório</mat-error>
+          </mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
           <mat-label>Email</mat-label>
-          <input type="email" matInput placeholder="pat@example.com" name="email" [(ngModel)]="user.email" required>
+          <input
+            type="email"
+            matInput placeholder="pat@example.com"
+            name="email"
+            pattern="^\S+@\S+$"
+            [(ngModel)]="user.email"
+            #email="ngModel"
+            required
+          >
           <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="email.invalid">
+            <mat-error *ngIf="email.errors.required">E-mail obrigatório</mat-error>
+            <mat-error *ngIf="email.errors.pattern">E-mail inválido</mat-error>
+          </mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
           <mat-label>Senha</mat-label>
-          <input type="password" matInput placeholder="" name="password" [(ngModel)]="user.password" required>
+          <input type="password" matInput placeholder="" name="password" [(ngModel)]="user.password" #password="ngModel" required>
           <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="password.invalid">
+            <mat-error *ngIf="password.errors.required">Senha obrigatório</mat-error>
+          </mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
           <mat-label>Confirmar Senha</mat-label>
-          <input type="password" matInput placeholder="" name="password" value="{{password}}" required>
+          <input type="password" matInput placeholder="" name="confirm"  [(ngModel)]="confirmPassword" #confirm="ngModel" required [equalTo]="password">
           <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="confirm.invalid && confirm.touched">
+            <mat-error *ngIf="confirm.errors.equalTo">As senhas estão diferentes</mat-error>
+          </mat-error>
+          <span class="confirm" *ngIf="confirm.valid">Senhas válidas</span>
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field>
-          <mat-label>Permissão</mat-label>
-          <input type="number" matInput placeholder="" name="permission" [(ngModel)]="user.permission" required>
-          <mat-icon matSuffix></mat-icon>
-        </mat-form-field>
+      <div *ngIf="user.permission >= 1" class="radio">
+        <label>Nível de permissão:</label>
+        <mat-radio-group name="permission" [(ngModel)]="user.permission" #permission required>
+          <mat-radio-button value="0">0</mat-radio-button>
+          <mat-radio-button *ngIf="user.permission >= 1" value="1">1</mat-radio-button>
+          <mat-radio-button *ngIf="user.permission >= 2" value="2">2</mat-radio-button>
+        </mat-radio-group>
       </div>
     </form>
   </mat-dialog-content>
 
   <mat-dialog-actions>
-    <button type="button" class="btn" [mat-dialog-close]="true" mat-raised-button (click)="updateUser(user.id)">Atualizar</button>
+    <button
+      type="submit"
+      class="btn"
+      [mat-dialog-close]="true"
+      mat-raised-button
+      [disabled]="!f.valid"
+      (click)="updateUser()"
+    >
+      Atualizar
+    </button>
   </mat-dialog-actions>
 </div>

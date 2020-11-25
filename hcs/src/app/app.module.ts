@@ -17,7 +17,7 @@ import { UserCreateComponent } from './pages/users/user-create/user-create.compo
 import { UserEditComponent } from './pages/users/user-edit/user-edit.component';
 import { UserProfileComponent } from './pages/users/user-profile/user-profile.component';
 import { UserDeleteComponent } from './pages/users/user-delete/user-delete.component';
-
+import { CustomFormsModule } from 'ngx-custom-validators';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { UserDeleteComponent } from './pages/users/user-delete/user-delete.compo
     UserCreateComponent,
     UserEditComponent,
     UserProfileComponent,
-    UserDeleteComponent
+    UserDeleteComponent,
 
   ],
   imports: [
@@ -38,10 +38,15 @@ import { UserDeleteComponent } from './pages/users/user-delete/user-delete.compo
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CustomFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [UserDeleteComponent]
+  entryComponents: [
+    UserDeleteComponent,
+    UserCreateComponent,
+    UserEditComponent
+  ]
 })
 export class AppModule { }

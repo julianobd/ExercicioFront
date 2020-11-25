@@ -26,8 +26,8 @@ export class UsersService {
     return this.http.delete<User>(`http://hcs.dev4.com.br/api/Users/DelUser/${this.token}/${id}`)
   }
 
-  updateUser(user: User, id: string) : Observable<any> {
-    return this.http.put(`http://hcs.dev4.com.br/api/Users/EditUser/${this.token}/${id}`, user)
+  updateUser(user: User) : Observable<any> {
+    return this.http.put(`http://hcs.dev4.com.br/api/Users/EditUser/${this.token}/${user.id}`, user)
   }
 
   // getUsers(){

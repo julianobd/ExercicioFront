@@ -1,19 +1,12 @@
-<!-- <div class="example-container">
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your email</mat-label>
-    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMsg()}}</mat-error>
-  </mat-form-field>
-</div> -->
+<button class="btn-x" mat-dialog-close>X</button>
 
 <div class="main">
-  <div class="btn-x-header">
-    <button class="btn-x" mat-button mat-dialog-close>X</button>
-  </div>
   <mat-card-header>
     <h1>
       CRIAR USUÁRIO
     </h1>
+    <div class="btn-x-header">
+    </div>
   </mat-card-header>
   <mat-dialog-content>
     <form #f="ngForm">
@@ -58,19 +51,20 @@
       <div>
         <mat-form-field>
           <mat-label>Confirmar Senha</mat-label>
-          <input type="password" matInput placeholder="" #confirm required>
+          <input type="password" matInput placeholder="" name="confirm" ngModel #confirm="ngModel" required [equalTo]="password">
           <mat-icon matSuffix>lock</mat-icon>
-          <mat-error *ngIf="confirm.invalid">
-            <mat-error *ngIf="confirm.errors.required">Confirme sua senha</mat-error>
+          <mat-error *ngIf="confirm.invalid && confirm.touched">
+            <mat-error *ngIf="confirm.errors.equalTo">As senhas estão diferentes</mat-error>
           </mat-error>
+          <span class="confirm" *ngIf="confirm.valid">Senhas válidas</span>
         </mat-form-field>
       </div>
-      <div class="radio">
+      <div *ngIf="user.permission >= 1" class="radio">
         <label>Nível de permissão:</label>
         <mat-radio-group name="permission" [(ngModel)]="user.permission" #permission required>
           <mat-radio-button value="0">0</mat-radio-button>
-          <mat-radio-button value="1">1</mat-radio-button>
-          <mat-radio-button value="2">2</mat-radio-button>
+          <mat-radio-button *ngIf="user.permission >= 1" value="1">1</mat-radio-button>
+          <mat-radio-button *ngIf="user.permission >= 2" value="2">2</mat-radio-button>
         </mat-radio-group>
       </div>
     </form>

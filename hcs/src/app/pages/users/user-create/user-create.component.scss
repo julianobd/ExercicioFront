@@ -16,10 +16,20 @@ mat-card-header {
   margin-bottom: 30px;
 }
 
-div .btn-x {
-  position: absolute;
-  top: 17%;
-  right: 34%;
+.btn-x {
+  font-weight: bold;
+  display: inline;
+  float: right;
+  border-style: none;
+  background: none;
+  outline: none;
+  color: rgb(177, 177, 177);
+  cursor: pointer;
+  font-size: 1.4em;
+}
+
+.btn-x:hover {
+  font-size: 1.7em;
 }
 
 h1{
@@ -38,6 +48,25 @@ form {
 mat-form-field {
   width: 100%;
   padding-top: 5px;
+}
+
+.confirm {
+  animation-name: fadeInOut;
+  color: green;
+  font-size: 0.8em;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  position: absolute;
+  top: 32px;
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
 }
 
 .radio {

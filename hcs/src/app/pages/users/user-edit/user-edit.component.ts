@@ -14,7 +14,7 @@ export class UserEditComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
-  password: string;
+  confirmPassword: string;
 
   constructor(private usersService: UsersService,
      private router: Router,
@@ -23,13 +23,13 @@ export class UserEditComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.user)
-    this.password = this.user.password
+    this.confirmPassword = this.user.password
   }
 
-  updateUser(id: string): void {
-    this.usersService.updateUser(this.user, id).subscribe(data => {
+  updateUser(): void {
+    this.usersService.updateUser(this.user).subscribe(data => {
     console.log('usuário atualizado')
-    console.log(data)
+    console.log('dado atualizado', data)
     })
   }
 
