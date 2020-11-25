@@ -29,7 +29,7 @@
 }
 
 .mat-header-cell{
-  padding: 20px 80px 0px 0px;
+  padding: 20px 50px 0px 0px;
 }
 
 th.mat-header-cell{
@@ -54,5 +54,9 @@ td.mat-cell{
 .mat-cell {
   padding: 0px 20px 8px 0;
   justify-content: center;
+}
+
+.edit {
+  cursor: pointer;
 }
 

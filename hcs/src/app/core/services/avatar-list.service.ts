@@ -12,7 +12,8 @@ export class AvatarListService {
 
   private url = 'http://hcs.dev4.com.br/api/Avatar/ListAvatars';
 
-  userToken: string = '20b314e0-6589-4738-8bf8-ca9cdf57f45e-ecb9ee4f-d890-49b0-9a64-ecf5d45390ce';
+  userToken: string = 'b025d2a9-d4c2-4f43-ae44-7d7fdec96f52-b92bd7ce-ec93-4b10-a916-8beda4181f3f';
+
   serverId: string = '00c0808b-cb1c-4802-92dd-1500833bc264';
 
   id: string = '';

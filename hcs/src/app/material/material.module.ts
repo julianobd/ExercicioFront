@@ -40,6 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule,
 
+
+
   ],
   exports: [
     MatCardModule,
@@ -55,6 +57,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCheckboxModule,
     MatRadioModule,
     MatTableModule,
+
+
 
   ]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ResponseAvatar } from 'src/app/core/models/avatar.model';
 import { AvatarListService } from '../../../core/services/avatar-list.service'
+import { AvatarEditComponent } from '../avatar-edit/avatar-edit.component';
 
 
 @Component({
@@ -14,9 +15,22 @@ export class AvatarListComponent implements OnInit {
 
   avatar: ResponseAvatar[];
 
-  displayedColumns: string[] = ['name', 'health', 'hungry', 'armor', 'money', 'experience', 'title', 'edit']
-
-
+  displayedColumns: string[] = [
+    'health',
+    'armor',
+    'hungry',
+    'title',
+    'jobId',
+    'leader',
+    'experience',
+    'money',
+    'statusPoint',
+    'strength',
+    'endurance',
+    'agility',
+    'accuracy',
+    'action'
+  ]
 
   responseAvatar: ResponseAvatar;
 

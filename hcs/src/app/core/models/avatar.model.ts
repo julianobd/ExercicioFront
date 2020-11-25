@@ -9,13 +9,19 @@ export interface Avatar {
 }
 
 export interface ResponseAvatar {
-  name: string;
   health: number;
-  hungry:	number;
-  armor:	number;
-  money: number;
+  armor: number;
+  hungry: number;
+  title: string;
+  jobId: string;
+  leader: boolean;
   experience: number;
-  title:	string;
+  money: number;
+  statusPoint: number;
+  strength: number;
+  endurance: number;
+  agility: number;
+  accuracy: number;
 }
 
 //Update
