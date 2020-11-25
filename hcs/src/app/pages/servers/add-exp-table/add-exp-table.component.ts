@@ -1,6 +1,5 @@
-
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddExpTableService } from './../../../core/services/addExpTable.service';
 
 
@@ -10,26 +9,31 @@ import { AddExpTableService } from './../../../core/services/addExpTable.service
   styleUrls: ['./add-exp-table.component.scss']
 })
 export class AddExpTableComponent implements OnInit {
-  form:FormGroup;
-  serverId:any;
 
-  constructor(private fb: FormBuilder, private addExpTable:AddExpTableService ) {
-    this.form = this.fb.group({
-      title:'',
-      level:'',
-      exp:'',
-    })
+  //serverId:any;*/
+  experience = [
+    {title:"Level 0", level:0, exp:1},
+    {title:"Level 0", level:0, exp:1}
+  ];
+
+
+  constructor() {
+   /* this.form = this.fb.group({
+      title:['',Validators.required],
+      level:['',Validators.required],
+      exp:['',Validators.required],
+    })*/
+
   }
+
 
   ngOnInit(): void {
   }
 
-
-    getserverId(){
-      this.addExpTable.getId(this.form.value).subscribe((res:any)=>{console.log(res)
-      this.serverId = res;
-      })
-    }
-    saveExpTable(){
-        return this.addExpTable.editExpTable(this.form.value.title,this.form.value.level,this.form.value.exp).subscribe(res=>console.log(res)) }
+  //  saveExpTable(){
+  //       return this.addExpTable.editExpTable(this.form.value.title,this.form.value.level,this.form.value.exp).subscribe(res=>console.log(res)) }
+  model: any={};
+  addrowTable(){
+    this.experience.push(this.model);
+  }
 }

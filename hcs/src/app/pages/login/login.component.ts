@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { LoginService } from './../../core/services/login.service';
 import { TokenService } from './../../core/services/token.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(private loginService:LoginService, private fb:FormBuilder, private tokenService:TokenService,private router:Router) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password:''
+      password:['',[Validators.required]]
     })
    }
 

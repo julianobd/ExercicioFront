@@ -1,6 +1,5 @@
-<section class="box">
+<!--<section class="box">
   <mat-card class="example-card">
-    <!--<button (click)="getserverId()">Add exp Table</button>-->
     <mat-card-title>ADICIONAR TABELA <br/>DE<br/>EXPERIÊNCIA</mat-card-title>
     <form class="form" [formGroup]="form" (ngSubmit)="saveExpTable()">
       <mat-form-field class="example-full-width">
@@ -28,4 +27,58 @@
       <button type="submit">Adicionar</button>
     </form>
   </mat-card>
-</section>
+</section>-->
+<form class="form-inline" (ngSubmit)="addrowTable()">
+  <div class="form-group">
+    <label for="title">Título</label>
+    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="model.title" >
+  </div>
+  <div class="form-group">
+    <label for="level">Level</label>
+    <input type="number" class="form-control" id="level" name="level" [(ngModel)]="model.level">
+  </div>
+  <div class="form-group">
+    <label for="exp">Level</label>
+    <input type="number" class="form-control" id="exp" name="exp" [(ngModel)]="model.exp">
+
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!--<table mat-table [dataSource]="myDataArray" >
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Título </th>
+    <td mat-cell *ngFor="let exp of exp" > {{exp.title}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef> Level</th>
+    <td mat-cell *ngFor="let exp of exp" > {{exp.level}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="exp">
+    <th mat-header-cell *matHeaderCellDef> Experiência </th>
+    <td mat-cell *ngFor="let exp of exp"> {{exp.exp}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>-->
+<table class="table">
+  <thead>
+    <tr>
+      <th style="width: 200px;">Título</th>
+      <th style="width: 200px;">Level</th>
+      <th style="width: 200px;">Exp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let experience of experience" >
+      <td>{{ experience.title }}</td>
+      <td>{{ experience.level }}</td>
+      <td>{{ experience.exp }}</td>
+    </tr>
+  </tbody>
+</table>
