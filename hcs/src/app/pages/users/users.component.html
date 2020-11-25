@@ -27,14 +27,16 @@
           <mat-checkbox (change)="$event ? masterToggle() : null"
                         [checked]="selection.hasValue() && isAllSelected()"
                         [indeterminate]="selection.hasValue() && !isAllSelected()"
-                        [aria-label]="checkboxLabel()">
+                        [aria-label]="checkboxLabel()"
+                        color="primary">
           </mat-checkbox>
         </th>
         <td mat-cell *matCellDef="let row">
           <mat-checkbox (click)="$event.stopPropagation()"
                         (change)="$event ? selection.toggle(row) : null"
                         [checked]="selection.isSelected(row)"
-                        [aria-label]="checkboxLabel(row)">
+                        [aria-label]="checkboxLabel(row)"
+                        color="primary">
           </mat-checkbox>
         </td>
       </ng-container>
@@ -53,13 +55,13 @@
 
       <!-- Coluna Permissão -->
       <ng-container matColumnDef="permission">
-        <th mat-header-cell *matHeaderCellDef> Permissão </th>
+        <th mat-header-cell *matHeaderCellDef width="10%"> Permissão </th>
         <td mat-cell *matCellDef="let user"> {{user.permission}} </td>
       </ng-container>
 
       <!-- Coluna Ações -->
       <ng-container matColumnDef="actions" class="lastone">
-        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <th mat-header-cell *matHeaderCellDef width="20%">           Ações </th>
         <td mat-cell *matCellDef="let user">
           <button mat-button class="" (click)="openEditDialog(user.id, user.name, user.email, user.password, user.permission)">
             <i class="material-icons edit" >edit</i>
