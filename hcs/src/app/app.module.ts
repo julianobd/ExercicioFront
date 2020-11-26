@@ -11,12 +11,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServersCreateComponent } from './pages/servers/servers-create/servers-create.component';
 import { AddExpTableComponent } from './pages/servers/add-exp-table/add-exp-table.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ServersCreateComponent,
     AddExpTableComponent
+
+
   ],
   imports: [
     BrowserModule,
