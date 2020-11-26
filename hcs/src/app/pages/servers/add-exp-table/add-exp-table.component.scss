@@ -1,4 +1,4 @@
-/* {
+*{
   padding:0;
   margin:0;
 }
@@ -8,45 +8,24 @@
   width: 100vw;
   height: 100vh;
   position: absolute;
+
+
 }
 .example-card{
-  width: 488px;
-  height: 564px;
+  width: 600px;
+  height: 400px;
   background-color: rgba(255,255,255,0.7);
   border-radius: 10px;
   position: relative;
-  left: 439px;
+  left: 390px;
   top:46px;
 }
-mat-card-title{
-  width: 253px;
-  height: 123px;
-  text-align: center;
-  line-height: 40px;
-  padding-top: 46px;
-  padding-left: 118px;
-  font-size: 27px;
-  font-weight: 500;
-  color: #5F5F5F;
+.formulario{
+  display: flex;
+  flex-direction: row;
 }
-button{
-  width: 379px;
+input{
+  width: 140px;
   height: 40px;
-  background-image: linear-gradient( to right,#0A78BE -10%,#63C1FF
-  );
-}
-
-.form {
-  padding-top: 100px;
-  padding-left: 55px;
-  width: 379px;
-  display:flex;
-  flex-direction: column;
-}
-.example-full-width {
-  width: 100%;
-}*/
-
-table {
-  width: 100%;
+  margin:15px;
 }

@@ -1,41 +1,23 @@
-<form class="form-inline" (ngSubmit)="addrowTable()" >
+<section class="box">
+<mat-card class="example-card">
+<mat-card-header>Adicionar Tabela de Experiência</mat-card-header>
+<form class="formulario" (ngSubmit)="addrowTable()" >
   <div class="form-group">
-    <label for="title">Título</label>
-    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="model.title" >
+    <label for="title"></label>
+    <input type="text" id="title" name="title" [(ngModel)]="model.title" >
   </div>
   <div class="form-group">
-    <label for="level">Level</label>
-    <input type="number" class="form-control" id="level" name="level" [(ngModel)]="model.level">
+    <label for="level"></label>
+    <input type="number" id="level" name="level" [(ngModel)]="model.level">
   </div>
   <div class="form-group">
-    <label for="exp">Level</label>
-    <input type="number" class="form-control" id="exp" name="exp" [(ngModel)]="model.exp">
-
+    <label for="exp"></label>
+    <input type="number" id="exp" name="exp" [(ngModel)]="model.exp">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 
-<!--<table mat-table [dataSource]="myDataArray" >
 
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef> Título </th>
-    <td mat-cell *ngFor="let exp of exp" > {{exp.title}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="level">
-    <th mat-header-cell *matHeaderCellDef> Level</th>
-    <td mat-cell *ngFor="let exp of exp" > {{exp.level}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="exp">
-    <th mat-header-cell *matHeaderCellDef> Experiência </th>
-    <td mat-cell *ngFor="let exp of exp"> {{exp.exp}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-</table>-->
 <table class="table">
   <thead>
     <tr>
@@ -50,11 +32,36 @@
       <td>{{ experience.level }}</td>
       <td>{{ experience.exp }}</td>
       <td>
-        <a class="btn btn-success" >Edit</a>
-        <a class="btn btn-danger" (click)="delrowTable(i)">Delete</a>
+        <a class="btnEdit" (click)="editrowTable(i)">Edit</a>
+        <a class="btnDelete" (click)="delrowTable(i)">Delete</a>
       </td>
     </tr>
   </tbody>
 </table>
 
-<a class="btn btn-success" (click)="saveExpTable()">Enviar</a>
+<div>
+  <form class="formulario">
+    <div class="form-group">
+      <label for="title"></label>
+      <input type="text" id="title" name="title" [(ngModel)]="model2.title" >
+    </div>
+    <div class="form-group">
+      <label for="level"></label>
+      <input type="number" id="level" name="level" [(ngModel)]="model2.level">
+    </div>
+    <div class="form-group">
+      <label for="exp"></label>
+      <input type="number" id="exp" name="exp" [(ngModel)]="model2.exp">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="updateRow()">Alterar</button>
+  </form>
+</div>
+<div *ngIf="msg" >
+  <a (click)="clickme()">X</a>
+  {{ msg }}
+</div>
+<button (click)="saveExpTable()">Salvar Tabela de Exp</button>
+</mat-card>
+
+
+</section>
