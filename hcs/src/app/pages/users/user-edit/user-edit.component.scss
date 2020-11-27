@@ -14,6 +14,7 @@ mat-card-header {
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  margin-right: 15px;
 }
 
 .btn-x {
@@ -94,4 +95,28 @@ mat-radio-button {
   background-position: right center;
   background-image: linear-gradient(268.62deg, #0A78BE -16.71%, #63C1FF 83.29%);
   font-size: 28px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 350px;
+    height: 550px;
+    padding: 15px;
+  }
+
+  .mat-card-header {
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+  mat-form-field {
+    padding-top: 20px;
+  }
+
+  .btn-x {
+    font-size: 1em;
+  }
+
+  .btn-x:hover {
+    font-size: 1.1em;
+  }
 }

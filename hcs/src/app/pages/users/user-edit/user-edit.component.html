@@ -41,7 +41,7 @@
       <div>
         <mat-form-field>
           <mat-label>Senha</mat-label>
-          <input type="password" matInput placeholder="" name="password" [(ngModel)]="user.password" #password="ngModel" required>
+          <input type="password" matInput placeholder="" name="password" (ngModel)="user.password" #password="ngModel" required>
           <mat-icon matSuffix>lock</mat-icon>
           <mat-error *ngIf="password.invalid">
             <mat-error *ngIf="password.errors.required">Senha obrigatório</mat-error>
@@ -51,9 +51,9 @@
       <div>
         <mat-form-field>
           <mat-label>Confirmar Senha</mat-label>
-          <input type="password" matInput placeholder="" name="confirm"  [(ngModel)]="confirmPassword" #confirm="ngModel" required [equalTo]="password">
+          <input type="password" matInput placeholder="" name="confirm"  (ngModel)="confirmPassword" #confirm="ngModel" required [equalTo]="password">
           <mat-icon matSuffix>lock</mat-icon>
-          <mat-error *ngIf="confirm.invalid && confirm.touched">
+          <mat-error *ngIf="confirm.invalid">
             <mat-error *ngIf="confirm.errors.equalTo">As senhas estão diferentes</mat-error>
           </mat-error>
           <span class="confirm" *ngIf="confirm.valid && confirm.touched">Senhas válidas</span>

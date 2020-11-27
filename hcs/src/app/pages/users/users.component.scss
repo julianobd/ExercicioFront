@@ -11,7 +11,7 @@
   min-width: 500px;
   max-width: 900px;
   padding: 0px 0px 0px 0px;
-  background: rgba(255, 255, 255, 0);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 mat-card-header {
@@ -50,8 +50,16 @@ table {
   min-width: 500px;
   margin-left: auto;
   margin-right: auto;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.0);
 }
+
+.text-center  {
+  text-align: center;
+ }
+
+ th, td {
+   height: 70px;
+ }
 
 th {
   font-size: 1.1em;
@@ -65,20 +73,46 @@ th {
 
 .delete {
   color: rgb(255, 115, 0);
-  border: none;
 }
 
-.mat-paginator {
-  background: rgba(255, 255, 255, 0.7);
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+.btn-edit, .btn-delete {
+  line-height: 20px;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  border-style: none;
+  border-radius: 100%;
 }
 
-.spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn-edit:hover, .btn-delete:hover {
+  background: rgba(255, 255, 255, 0.199);
+}
+
+.pagination-controls {
+  height: 60px;
+}
+
+.loading-shade {
   position: absolute;
-  left: 47%;
-  top: 40%;
+  top: 0;
+  left: 0;
+  bottom: 30px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 250px;
+    height: 600px;
+  }
+  .btn-edit, .btn-delete {
+    width: 20px;
+    height: 20px;
+  }
+  .btn-edit {margin-right: 5px;}
 }

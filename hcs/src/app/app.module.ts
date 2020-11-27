@@ -18,6 +18,8 @@ import { UserEditComponent } from './pages/users/user-edit/user-edit.component';
 import { UserProfileComponent } from './pages/users/user-profile/user-profile.component';
 import { UserDeleteComponent } from './pages/users/user-delete/user-delete.component';
 import { CustomFormsModule } from 'ngx-custom-validators';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { UsersDeleteManyComponent } from './pages/users/users-delete-many/users-delete-many.component';
 
 
 @NgModule({
@@ -29,6 +31,7 @@ import { CustomFormsModule } from 'ngx-custom-validators';
     UserEditComponent,
     UserProfileComponent,
     UserDeleteComponent,
+    UsersDeleteManyComponent
 
   ],
   imports: [
@@ -39,7 +42,8 @@ import { CustomFormsModule } from 'ngx-custom-validators';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    CustomFormsModule
+    CustomFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],
