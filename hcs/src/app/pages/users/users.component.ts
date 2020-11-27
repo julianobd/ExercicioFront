@@ -12,7 +12,6 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -25,6 +24,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   // Variável para ativar o spinner
   showSpinner = false;
+
+  allSelected = false;
 
   // LISTA DE USUÁRIOS
   users: User[] = [];
@@ -39,23 +40,30 @@ export class UsersComponent implements OnInit, AfterViewInit {
   selection = new SelectionModel<User>(true, []);
 
   // Se o número de elementos selecionados corresponde ao número total de linhas
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.users.length;
-    return numSelected === numRows;
-  }
+  // isAllSelected() {
+  //   const numSelected = this.selection.selected.length;
+  //   const numRows = this.users.length;
+  //   return numSelected === numRows;
+  // }
 
   // Seleciona todas as linhas se nem todas estiverem selecionadas, caso contrário, limpa a seleção
   masterToggle() {
-    this.isAllSelected() ?
-        this.selection.clear() :
-        this.users.forEach(row => this.selection.select(row));
+    if (!this.allSelected) {
+      this.users.forEach(row => this.selection.select(row));
+      this.allSelected = true;
+    } else {
+      this.selection.clear();
+      this.allSelected = false;
+    }
+    // this.isAllSelected() ?
+    //     this.selection.clear() :
+    //     this.users.forEach(row => this.selection.select(row));
   }
 
   // O LABEL para a caixa de seleção na linha passada.
   checkboxLabel(row?: User): any {
     if (!row) {
-      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+      return `${this.allSelected ? 'select' : 'deselect'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
@@ -86,12 +94,14 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   // Atualiza a lista de usuários
   refreshUsers() {
+      this.selection.clear();
       this.showSpinner = true;
       this.changeDetectorRef.detectChanges();
       this.usersService.getUsers().subscribe((data) => {
         this.users = data;
-        console.log(data, 'dados obtidos')
-        console.log(this.users, 'dados armazenados')
+        console.log(data, 'dados obtidos');
+        console.log(this.users, 'dados armazenados');
+
         this.showSpinner = false;
     });
   }
@@ -114,7 +124,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
       data: {id: id}
     });
     dialogRef.afterClosed().subscribe(res => {
-      if (res == true) {
+      if (res) {
         this.showSpinner = true;
           setTimeout(() => {
           console.log('Excluindo usuário...')
@@ -127,32 +137,51 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   // Exclui vários usuários ao mesmo tempo
   openDeleteManyDialog(users: any) {
-    const cont = users.length
-    let i = 1
-    const dialogRef = this.dialog.open(UsersDeleteManyComponent, {
-      data: {cont: cont}
-    });
-    dialogRef.afterClosed().subscribe(res => {
-      if (res == true) {
-        this.showSpinner = true;
-        users.forEach(user => {
-            this.usersService.deleteUser(user.id).subscribe(data => {
-              console.log(data)
-              console.log(`usuário ${i} deletado`)
-              i++
-            })
-          })
-          setTimeout(() => {
-          console.log('Excluindo usuários...')
-          this.refreshUsers();
-          if (cont <= 1) {
-                this.snackBar.showMessage(`${cont} usuário deletado`)
-              } else {
-                this.snackBar.showMessage(`${cont} usuários deletados`)
+    if (users.length == 0) {
+      this.snackBar.showMessage('Nenhum usuário selecionado')
+    } else {
+      const cont = users.length
+      let i = 1
+      const dialogRef = this.dialog.open(UsersDeleteManyComponent, {
+        data: {cont: cont}
+      });
+      dialogRef.afterClosed().subscribe(res => {
+        if (res) {
+          this.showSpinner = true;
+
+
+
+          // users.forEach(user => {
+          //     this.usersService.deleteUser(user.id).subscribe(data => {
+          //       console.log(data)
+          //       console.log(`usuário ${i} deletado`)
+          //       i++
+          //     })
+          //   })
+          //   setTimeout(() => {
+          //   console.log('Excluindo usuários...')
+          //   this.refreshUsers();
+          //   if (cont <= 1) {
+          //         this.snackBar.showMessage(`${cont} usuário deletado`)
+          //       } else {
+          //         this.snackBar.showMessage(`${cont} usuários deletados`)
+          //       }
+          // }, (cont * 300));
+
+          users.forEach((val, key, arr) => {
+            this.usersService.deleteUser(val.id).subscribe(data => {
+              console.log(data);
+              console.log(`usuário ${i} deletado`);
+              i++;
+              if (Object.is(arr.length-1, key)) {
+                this.refreshUsers();
               }
-        }, (cont * 300));
-      }
-    })
+            });
+          });
+
+        }
+      })
+    }
   }
 
   // Abre o Dialog para adicionar um usuário

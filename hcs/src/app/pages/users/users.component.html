@@ -27,8 +27,8 @@
       <!-- Coluna checkbox -->
       <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef width="10%">
-          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
-            [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()" color="primary">
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && allSelected"
+            [indeterminate]="selection.hasValue() && !allSelected" [aria-label]="checkboxLabel()" color="primary">
           </mat-checkbox>
         </th>
         <td mat-cell *matCellDef="let row">
