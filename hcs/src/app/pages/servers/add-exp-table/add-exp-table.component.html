@@ -59,9 +59,9 @@
     </form>
   </mat-card>
 
-  <div *ngIf="msg">
-    <a (click)="clickme()">X</a>
+  <div class="btn-alert" *ngIf="msg">
     {{ msg }}
+    <a  (click)="clickme()" class="close">x</a>
   </div>
 
 </section>

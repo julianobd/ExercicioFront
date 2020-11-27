@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     this.loginService.postLogin(this.form.value).subscribe((res:any)=>{
       this.tokenService.setToken(res.token);
-      this.router.navigate(['../serverCreate'])
+      this.router.navigate(['../getServer'])
     });
 
 

@@ -10,6 +10,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServersCreateComponent } from './pages/servers/servers-create/servers-create.component';
 import { AddExpTableComponent } from './pages/servers/add-exp-table/add-exp-table.component';
+import { GetServerComponent } from './pages/servers/get-server/get-server.component';
 
 
 
@@ -18,7 +19,8 @@ import { AddExpTableComponent } from './pages/servers/add-exp-table/add-exp-tabl
     AppComponent,
     LoginComponent,
     ServersCreateComponent,
-    AddExpTableComponent
+    AddExpTableComponent,
+    GetServerComponent
 
 
   ],

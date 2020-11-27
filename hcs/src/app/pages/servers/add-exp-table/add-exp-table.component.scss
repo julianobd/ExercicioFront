@@ -74,3 +74,17 @@ td{
   text-align: center;
   border: 1px #000000;
 }
+.btn-alert{
+text-align: center;
+width: 240px;
+height: 20px;
+background-image: linear-gradient(to right, #0a78be -10%, #63c1ff);
+border-radius: 4px;
+position: fixed;
+top: 10px;
+left: 563px;
+}
+a{
+  font-size: 16px;
+  padding-left: 10px;
+}

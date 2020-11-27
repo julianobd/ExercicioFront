@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AnimationDurations } from '@angular/material/core';
 import { AddExpTableService } from './../../../core/services/addExpTable.service';
+
+
 
 @Component({
   selector: 'app-add-exp-table',
@@ -47,7 +50,7 @@ export class AddExpTableComponent implements OnInit {
   delrowTable(i){
     this.experience.splice(i,1)
     console.log(i);
-    this.msg = "Item deletado com sucesso"
+    this.msg = "Item deletado com sucesso";
     this.edit = false;
   }
   myValue;
@@ -58,9 +61,8 @@ export class AddExpTableComponent implements OnInit {
     this.model2.exp = this.experience[k].exp;
     this.myValue = k;
     this.edit = true;
-
-
   }
+
   updateRow(){
     let k= this.myValue;
     for(let i=0; i<this.experience.length; i++){
@@ -76,4 +78,5 @@ export class AddExpTableComponent implements OnInit {
   clickme(){
     this.msg="";
   }
+
 }
