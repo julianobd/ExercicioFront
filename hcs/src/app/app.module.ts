@@ -2,15 +2,21 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ServersEditComponent } from './pages/servers/servers-edit/servers-edit.component';
+import { ServersListComponent } from './pages/servers/servers-list/servers-list.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { FooterComponent } from './pages/footer/footer.component';
+import { ServersCreateComponent } from './pages/servers/servers-create/servers-create.component';
+import { AvatarListComponent } from './pages/avatar/avatar-list/avatar-list.component';
+import { AvatarEditComponent } from './pages/avatar/avatar-edit/avatar-edit.component'
 import { MaterialModule } from './material/material.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 import { UsersComponent } from './pages/users/users.component';
 import { UserCreateComponent } from './pages/users/user-create/user-create.component';
@@ -36,7 +42,14 @@ import { UsersDeleteManyComponent } from './pages/users/users-delete-many/users-
     ExpMachinesComponent,
     EditMachinesComponent,
     UserDeleteComponent,
-    UsersDeleteManyComponent
+    UsersDeleteManyComponent,
+    ServersEditComponent,
+    ServersListComponent,
+    HeaderComponent,
+    FooterComponent,
+    ServersCreateComponent,
+    AvatarListComponent,
+    AvatarEditComponent,
   ],
   imports: [
     BrowserModule,

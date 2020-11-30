@@ -1,35 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatSelectModule } from '@angular/material/select';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-
-=======
+//material imports
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
->>>>>>> users
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -38,19 +30,14 @@ import { MatRadioModule } from '@angular/material/radio';
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    MatToolbarModule,
     MatTableModule,
-<<<<<<< HEAD
     MatDialogModule,
     MatSelectModule,
     MatToolbarModule,
     MatPaginatorModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatProgressSpinnerModule
-    
-    
-
-=======
     MatCheckboxModule,
     MatDialogModule,
     MatProgressSpinnerModule,
@@ -58,24 +45,25 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSortModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    MatRadioModule
->>>>>>> users
+    MatRadioModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   exports: [
     MatCardModule,
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    MatToolbarModule,
     MatTableModule,
-<<<<<<< HEAD
     MatDialogModule,
     MatSelectModule,
     MatToolbarModule,
     MatPaginatorModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatProgressSpinnerModule
-=======
     MatCheckboxModule,
     MatDialogModule,
     MatProgressSpinnerModule,
@@ -83,8 +71,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSortModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    MatRadioModule
->>>>>>> users
+    MatRadioModule,
+    MatTableModule,
   ]
 })
 export class MaterialModule { }
