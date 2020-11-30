@@ -1,0 +1,122 @@
+.main {
+  width: 470px;
+  height: 500px;
+  top: 106px;
+  left: 35%;
+  border-radius: 10px;
+  color: rgb(131, 131, 131) 70%;
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-right: 25px;
+}
+
+.btn-x {
+  font-weight: bold;
+  display: inline;
+  float: right;
+  border-style: none;
+  background: none;
+  outline: none;
+  color: rgb(177, 177, 177);
+  cursor: pointer;
+  font-size: 1.4em;
+}
+
+.btn-x:hover {
+  font-size: 1.7em;
+}
+
+h1{
+  color: #5F5F5F;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 2.5em;
+  line-height: 40px;
+}
+
+form {
+  padding-bottom: 5px;
+}
+
+mat-form-field {
+  width: 100%;
+  padding-top: 5px;
+}
+
+.confirm {
+  animation-name: fadeInOut;
+  color: green;
+  font-size: 0.8em;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  position: absolute;
+  top: 32px;
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+}
+
+.radio {
+  padding: 15px 0px;
+}
+
+mat-radio-button {
+  margin-left: 17px;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 20px;
+  height: 50px;
+  font-size: 27px;
+  letter-spacing: 2px;
+  color: white;
+  transition: 0.2s;
+  font-weight: 500;
+  background-image: linear-gradient(268.62deg, #63C1FF -16.71%, #0A78BE 83.29%);
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-position: right center;
+  background-image: linear-gradient(268.62deg, #0A78BE -16.71%, #63C1FF 83.29%);
+  font-size: 28px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 350px;
+    height: 550px;
+    padding: 15px;
+  }
+
+  .mat-card-header {
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+  mat-form-field {
+    padding-top: 20px;
+  }
+
+  .btn-x {
+    font-size: 1em;
+  }
+
+  .btn-x:hover {
+    font-size: 1.1em;
+  }
+}

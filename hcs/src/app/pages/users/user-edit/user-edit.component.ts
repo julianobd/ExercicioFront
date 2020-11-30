@@ -1,7 +1,9 @@
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl, Validators } from '@angular/forms';
 import { User } from './../../../core/models/user.model';
 import { Router } from '@angular/router';
 import { UsersService } from './../../../core/services/users.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-edit',
@@ -10,23 +12,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEditComponent implements OnInit {
 
-  user: User;
+  email = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private usersService: UsersService, private router: Router) { }
+  confirmPassword: string;
+
+  constructor(private usersService: UsersService,
+     private router: Router,
+     @Inject (MAT_DIALOG_DATA) public user: User
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.user)
+    this.confirmPassword = this.user.password
   }
 
-  updateUser(id: string): void {
+  updateUser(): void {
     this.usersService.updateUser(this.user).subscribe(data => {
-    console.log('produto criado')
-    console.log(data)
-    this.router.navigate(['/users'])
+    console.log('usuário atualizado')
+    console.log('dado atualizado', data)
     })
   }
 
   cancelar(): void {
     this.router.navigate(['/users'])
+  }
+
+  getErrorMsg() {
+    if (this.email.hasError('required')) {
+      return 'Preencha o campo'
+    }
+
+    return this.email.hasError('email') ? 'Email inválido' : '';
   }
 
 }

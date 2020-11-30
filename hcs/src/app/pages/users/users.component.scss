@@ -1,36 +1,118 @@
-.card {
+.main {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-table {
-  width: 70%;
-  min-width: 350px;
-  margin-left: auto;
-  margin-right: auto;
+.container {
+  width: 100%;
+  min-width: 500px;
+  max-width: 900px;
+  padding: 0px 0px 0px 0px;
+  background: rgba(255, 255, 255, 0.6);
 }
 
+mat-card-header {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 154, 255, 0.8)
+}
+
+mat-card-title, h1{
+  padding-top: 10px;
+  padding-left: 10px;
+  letter-spacing: 0.1em;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.btn-group {
+  padding-top: 15px;
+  padding-right: 30px;
+}
+
+.btn-1 {
+  margin-right: 30px;
+}
+
+.btn-2 {
+  background-color: #05BC4E;
+  color: white;
+}
+
+table {
+  width: 100%;
+  min-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.0);
+}
+
+.text-center  {
+  text-align: center;
+ }
+
+ th, td {
+   height: 70px;
+ }
+
 th {
-  font-size: 1em;
+  font-size: 1.1em;
   font-weight: bold;
   color: rgb(59, 59, 59);
 }
 
 .edit {
-  color: rgb(255, 230, 0);
+  color: #009AFF;
 }
 
 .delete {
   color: rgb(255, 115, 0);
-  border: none;
 }
 
-.spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn-edit, .btn-delete {
+  line-height: 20px;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  border-style: none;
+  border-radius: 100%;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+  background: rgba(255, 255, 255, 0.199);
+}
+
+.pagination-controls {
+  height: 60px;
+}
+
+.loading-shade {
   position: absolute;
-  left: 47%;
-  top: 40%;
+  top: 0;
+  left: 0;
+  bottom: 30px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 250px;
+    height: 600px;
+  }
+  .btn-edit, .btn-delete {
+    width: 20px;
+    height: 20px;
+  }
+  .btn-edit {margin-right: 5px;}
 }

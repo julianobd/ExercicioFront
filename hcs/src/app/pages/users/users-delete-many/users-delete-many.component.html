@@ -1,0 +1,9 @@
+<h1 mat-dialog-title *ngIf="data.cont <= 1">Excluir usuário</h1>
+<h1 mat-dialog-title *ngIf="data.cont > 1">Excluir usuários</h1>
+<div mat-dialog-content *ngIf="data.cont <= 1">Tem certeza que deseja excluir {{data.cont}} usuário?</div>
+<div mat-dialog-content *ngIf="data.cont > 1">Tem certeza que deseja excluir {{data.cont}} usuários?</div>
+<div mat-dialog-actions>
+  <button class="btn-delete" mat-button [mat-dialog-close]="true" color="warn">Excluir</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
+</div>
+

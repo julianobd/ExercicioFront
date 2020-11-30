@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+<<<<<<< HEAD
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -14,6 +15,21 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
+=======
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatRadioModule } from '@angular/material/radio';
+>>>>>>> users
 @NgModule({
   declarations: [],
   imports: [
@@ -23,6 +39,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatInputModule,
     MatButtonModule,
     MatTableModule,
+<<<<<<< HEAD
     MatDialogModule,
     MatSelectModule,
     MatToolbarModule,
@@ -33,6 +50,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     
     
 
+=======
+    MatCheckboxModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatRadioModule
+>>>>>>> users
   ],
   exports: [
     MatCardModule,
@@ -40,6 +67,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatInputModule,
     MatButtonModule,
     MatTableModule,
+<<<<<<< HEAD
     MatDialogModule,
     MatSelectModule,
     MatToolbarModule,
@@ -47,6 +75,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatCheckboxModule,
     MatRadioModule,
     MatProgressSpinnerModule
+=======
+    MatCheckboxModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatRadioModule
+>>>>>>> users
   ]
 })
 export class MaterialModule { }
