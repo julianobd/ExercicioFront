@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
+import { Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { LoginService } from './../../core/services/login.service';
 import { TokenService } from './../../core/services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,15 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
   numberToken: string;
+  data: any;
+  currentUser:any;
 
 
 
-
-
-  constructor(private loginService:LoginService, private fb:FormBuilder, private tokenService:TokenService) {
+  constructor(private loginService:LoginService, private fb:FormBuilder, private tokenService:TokenService,private router:Router) {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password:''
+      email: ['', [Validators.required]],
+      password:['',[Validators.required]]
     })
    }
 
@@ -28,14 +29,15 @@ export class LoginComponent implements OnInit {
 
   }
   save(){
-
     this.loginService.postLogin(this.form.value).subscribe((res:any)=>{
-      this.tokenService.setToken(res.token)
+      this.tokenService.setToken(res.token);
+      this.currentUser = res;
+      this.loginService.setUserdata(this.currentUser);
+      this.router.navigate(['../getServer']);
     });
-
-
-
   }
+
+
 
  // emailFormControl = new FormControl('', [
    // Validators.required,

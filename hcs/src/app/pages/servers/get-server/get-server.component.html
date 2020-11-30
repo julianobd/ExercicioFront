@@ -1,0 +1,13 @@
+<section class="example-button-row">
+  <form [formGroup]="form" (ngSubmit)="getServerdata()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Informe o Id do servidor</mat-label>
+      <input matInput formControlName="serverId">
+    </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Buscar Servidor</button>
+  <button mat-raised-button color="primary" [routerLink]="['/serverCreate']">
+    criar servidor</button>
+  </form>
+
+</section>

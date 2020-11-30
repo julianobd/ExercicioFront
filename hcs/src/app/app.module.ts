@@ -1,5 +1,3 @@
-
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -28,7 +26,9 @@ import { EditMachinesComponent } from './pages/exp-machines/edit-machines/edit-m
 import { CustomFormsModule } from 'ngx-custom-validators';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UsersDeleteManyComponent } from './pages/users/users-delete-many/users-delete-many.component';
-
+import { AddExpTableComponent } from './pages/servers/add-exp-table/add-exp-table.component';
+import { GetServerComponent } from './pages/servers/get-server/get-server.component';
+import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add-exp-table-form.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +50,9 @@ import { UsersDeleteManyComponent } from './pages/users/users-delete-many/users-
     ServersCreateComponent,
     AvatarListComponent,
     AvatarEditComponent,
+    AddExpTableComponent,
+    GetServerComponent,
+    AddExpTableFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { UsersDeleteManyComponent } from './pages/users/users-delete-many/users-
   entryComponents: [
     UserDeleteComponent,
     UserCreateComponent,
-    UserEditComponent
+    UserEditComponent,
+    AddExpTableFormComponent
   ]
 })
 export class AppModule { }

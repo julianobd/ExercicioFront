@@ -1,18 +1,18 @@
 <p>
   <mat-toolbar color="Basic" class="navbar" >
-
-    <img src="../../../assets/icons/sword 2.svg" alt="logo" class="logo">
-
-    <img src="../../../assets/icons/SHARP SWORD.svg" alt="logo" class="logo">
+    <div class="div-logo">
+      <img src="../../../assets/icons/sword 2.svg" alt="logo" class="logo-1">
+      <img src="../../../assets/icons/SHARP SWORD.svg" alt="logo" class="logo-2">
+    </div>
 
     <div class="intensNav">
-      <a mat-button>Usuarios</a>
+      <a mat-button routerLink="/users">Usuarios</a>
       <a mat-button routerLink="/itensServidor">Itens</a>
-      <a mat-button routerLink="/avatar">Servers</a>
+      <a mat-button routerLink="getServer">Servers</a>
       <a mat-button>Pacotes</a>
-      <a mat-button>Maquina de Experiencia</a>
-      <a mat-button>Criar Servidor</a>
-      <a mat-button>Perfil</a>
+      <a mat-button routerLink="expTabForm">Maquina de Experiencia</a>
+      <a mat-button routerLink="serverCreate">Criar Servidor</a>
+      <a mat-button routerLink="">Perfil</a>
       <a mat-button routerLink="/avatar">Avatar</a>
       <a mat-raised-button color="primary">Sair</a>
     </div>

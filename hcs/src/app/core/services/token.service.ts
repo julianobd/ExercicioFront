@@ -8,15 +8,25 @@ export class TokenService {
 
   private token:string;
 
+
   constructor(private http:HttpClient) {
 
   }
+
+  setToken(token:string){
+    this.token = token;
+    console.log(token)
+  }
+
   getToken(){
     return this.token;
   }
-  setToken(token:string){
-    this.token = token;
-  }
+
+
+
+
+
+
 
 }
 

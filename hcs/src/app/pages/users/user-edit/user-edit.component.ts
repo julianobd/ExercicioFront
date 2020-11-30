@@ -1,3 +1,4 @@
+import { LoginService } from './../../../core/services/login.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, Validators } from '@angular/forms';
 import { User } from './../../../core/models/user.model';
@@ -16,12 +17,16 @@ export class UserEditComponent implements OnInit {
 
   confirmPassword: string;
 
+  currentUser: User;
+
   constructor(private usersService: UsersService,
      private router: Router,
+     private login: LoginService,
      @Inject (MAT_DIALOG_DATA) public user: User
   ) { }
 
   ngOnInit(): void {
+    this.currentUser = this.login.getUserdata()
     console.log(this.user)
     this.confirmPassword = this.user.password
   }

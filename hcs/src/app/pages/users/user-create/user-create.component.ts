@@ -1,3 +1,4 @@
+import { LoginService } from './../../../core/services/login.service';
 import { Validators, FormControl } from '@angular/forms';
 import { User } from './../../../core/models/user.model';
 import { Router } from '@angular/router';
@@ -19,16 +20,20 @@ export class UserCreateComponent implements OnInit {
     name: '',
     email: '',
     password: '',
-    permission: 2,
+    permission: 0,
     serverId: '6435FB94-2328-4F34-B590-68441F8BD936'
   }
+
+  currentUser: User;
 
   constructor(
     private usersService: UsersService,
     private router: Router,
+    private login: LoginService
   ) { }
 
   ngOnInit(): void {
+    this.currentUser = this.login.getUserdata()
   }
 
   // Função para adicionar usuário

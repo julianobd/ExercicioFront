@@ -1,0 +1,29 @@
+<mat-card class="card-form">
+<mat-card-header class="card-form-title">Adicionar Tabela de Experiência</mat-card-header>
+<form [formGroup]="addExpTabFormService.form" class="normal-form">
+  <div class="controles-container">
+    <input type="hidden" formControlName="$key">
+    <mat-form-field>
+      <mat-label>Título</mat-label>
+      <input formControlName="title" matInput>
+      <mat-error>Campo Requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Level</mat-label>
+      <input formControlName="level" type="number" matInput>
+      <mat-error>Campo Requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Exp</mat-label>
+      <input formControlName="exp" type="number" matInput>
+      <mat-error>Campo Requerido</mat-error>
+    </mat-form-field>
+    <div class="button-row">
+    <button mat-raised-button color="primary" type="submit" [disabled]="addExpTabFormService.form.invalid">Adicionar</button>
+    <button mat-raised-button color="warn" type="submit" (click)="onClear()">Limpar</button>
+    </div>
+  </div>
+
+</form>
+</mat-card>
+

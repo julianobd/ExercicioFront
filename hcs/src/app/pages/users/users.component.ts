@@ -1,3 +1,4 @@
+import { LoginService } from './../../core/services/login.service';
 import { UsersDeleteManyComponent } from './users-delete-many/users-delete-many.component';
 import { SnackbarService } from './../../core/services/snackbar.service';
 import { UserEditComponent } from './user-edit/user-edit.component';
@@ -27,7 +28,10 @@ export class UsersComponent implements OnInit, AfterViewInit {
   allSelected = false;
 
   // LISTA DE USUÁRIOS
-  users: User[] = [];
+  users: User[];
+
+  // Carrega o usual logado atualmente
+  currentUser: User;
 
 
   pageSize = 4;
@@ -77,7 +81,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
     private router: Router,
     private dialog: MatDialog,
     private changeDetectorRef: ChangeDetectorRef,
-    private snackBar: SnackbarService
+    private snackBar: SnackbarService,
+    private login: LoginService
   ) { }
 
   // Carrega todos os usuários
@@ -100,8 +105,14 @@ export class UsersComponent implements OnInit, AfterViewInit {
         this.users = data;
         console.log(data, 'dados obtidos');
         console.log(this.users, 'dados armazenados');
-
+        this.currentUser = this.login.getUserdata();
+        console.log(this.currentUser, 'dados do usuário logado')
         this.showSpinner = false;
+    }, err => {
+      console.log('', err);
+      this.snackBar.showMessage('Erro ao buscar os usários!')
+      this.showSpinner = false;
+      console.log('usuário atual', this.login.getUserdata())
     });
   }
 
@@ -181,18 +192,22 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   // Abre o Dialog para editar o usuário
   openEditDialog(id: string, name: string, email: string, password: string, permission: number, serverId: string) {
-    const dialogRef = this.dialog.open(UserEditComponent, {
-      data: {id: id, name: name, email: email, password: password, permission: permission, serverId: serverId}
-    });
-    dialogRef.afterClosed().subscribe(res => {
-      if (res == true) {
-        this.showSpinner = true;
-          setTimeout(() => {
-          console.log('Atualizando usuário...')
-          this.refreshUsers();
-          this.snackBar.showMessage('Usuário atualizado!')
-        }, 500);
-      }
-    })
+    if (this.currentUser.permission < permission) {
+      this.snackBar.showMessage('Você não tem permissão para editar este usuário!')
+    } else {
+      const dialogRef = this.dialog.open(UserEditComponent, {
+        data: {id: id, name: name, email: email, password: password, permission: permission, serverId: serverId}
+      });
+      dialogRef.afterClosed().subscribe(res => {
+        if (res == true) {
+          this.showSpinner = true;
+            setTimeout(() => {
+            console.log('Atualizando usuário...')
+            this.refreshUsers();
+            this.snackBar.showMessage('Usuário atualizado!')
+          }, 500);
+        }
+      })
+    }
   }
 }

@@ -1,0 +1,90 @@
+*{
+  padding:0;
+  margin:0;
+}
+.box{
+  background-image: url('../../../../assets/img/fundo.jpg');
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+.example-card{
+  width: 700px;
+  height: 400px;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 10px;
+  position: relative;
+  left: 333px;
+  top:46px;
+}
+.example-card2{
+  width:700px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 10px;
+  margin-top: 80px;
+  left: 333px;
+
+}
+mat-card-title {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 134px;
+  font-size: 27px;
+  font-weight: 500;
+  color: #5f5f5f;
+}
+.formulario{
+  display: flex;
+  flex-direction: row;
+}
+
+.btnSave{
+  width: 200px;
+  height: 40px;
+  position: relative;
+  margin-left: 100px;
+  top: 10px;
+  background-image: linear-gradient(to right, #0a78be -10%, #63c1ff);
+
+}
+.btnSave2{
+  background-image: linear-gradient(to right, #0a78be -10%, #63c1ff);
+  margin-left:20px;
+}
+table{
+  padding-top: 40px;
+
+}
+.table-section{
+  height: 200px;
+  overflow: auto;
+}
+.example-full-width{
+  padding-left:40px;
+}
+.example-full-width2{
+  padding-left:15px;
+}
+a{
+  cursor: pointer;
+}
+td{
+  text-align: center;
+  border: 1px #000000;
+}
+.btn-alert{
+text-align: center;
+width: 240px;
+height: 20px;
+background-image: linear-gradient(to right, #0a78be -10%, #63c1ff);
+border-radius: 4px;
+position: fixed;
+top: 10px;
+left: 563px;
+}
+a{
+  font-size: 16px;
+  padding-left: 10px;
+}

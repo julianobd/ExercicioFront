@@ -1,16 +1,41 @@
 .navbar {
+  width: 100%;
   background-color:#ffffff;
   color: lightslategray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo {
+.logo-1 {
   margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.logo-2 {
+  height: 20px;
+}
+
+.div-logo {
+  display: flex;
+  align-items: center;
+  width: 40%;
 }
 
 .intensNav {
-  flex: 1 1 auto;
-  margin-left: 19rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
+@media (max-width: 1090px) {
+  .div-logo {
+    display: none;
+  }
+}
 
-
+@media (max-width: 925) {
+  .intensNav {
+    width: 0.2em;
+  }
+}

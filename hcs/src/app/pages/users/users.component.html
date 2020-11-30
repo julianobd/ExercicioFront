@@ -19,7 +19,11 @@
       </div>
     </mat-card-header>
 
-    <table id="table" mat-table [dataSource]="users | paginate : { id: 'users',
+    <div *ngIf="!users" class="msg">
+      <p >Nenhum usuário disponível</p>
+    </div>
+
+    <table *ngIf="users" id="table" mat-table [dataSource]="users | paginate : { id: 'users',
                                                         itemsPerPage: pageSize,
                                                         currentPage: p,
                                                         totalItems: users.length}">

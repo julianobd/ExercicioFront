@@ -59,13 +59,21 @@
           <span class="confirm" *ngIf="confirm.valid && confirm.touched">Senhas válidas</span>
         </mat-form-field>
       </div>
-      <div *ngIf="user.permission >= 1" class="radio">
-        <label>Nível de permissão:</label>
-        <mat-radio-group color="primary" name="permission" [(ngModel)]="user.permission" #permission required>
+      <div *ngIf="currentUser.permission >= 1" class="radio">
+        <mat-form-field>
+          <mat-label>Nível de permissão:</mat-label>
+          <mat-select>
+            <mat-option value="0">Moderador</mat-option>
+            <mat-option *ngIf="currentUser.permission >= 1" value="1">Administrador</mat-option>
+            <mat-option *ngIf="currentUser.permission >= 2" value="2">Gerente</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- <mat-radio-group color="primary" name="permission" [(ngModel)]="user.permission" #permission required>
           <mat-radio-button value="0">0</mat-radio-button>
           <mat-radio-button *ngIf="user.permission >= 1" value="1">1</mat-radio-button>
           <mat-radio-button *ngIf="user.permission >= 2" value="2">2</mat-radio-button>
-        </mat-radio-group>
+        </mat-radio-group> -->
       </div>
     </form>
   </mat-dialog-content>

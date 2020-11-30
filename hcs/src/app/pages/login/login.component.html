@@ -12,11 +12,16 @@
         </div>
         <div class="content-acess">
           <h1>Login</h1>
-          <form class="example-form" (ngSubmit)="save()" [formGroup]="form" >
+          <form class="example-form" (ngSubmit)="save()" [formGroup]="form">
             <mat-form-field class="example-full-width">
               <mat-label>Email</mat-label>
-                <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
-                <mat-icon matSuffix>email</mat-icon>
+              <input
+                type="email"
+                matInput
+                formControlName="email"
+                placeholder="Ex. pat@example.com"
+              />
+              <mat-icon matSuffix>email</mat-icon>
               <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                   Please enter a valid email address
                 </mat-error>
@@ -26,7 +31,7 @@
             </mat-form-field>
             <mat-form-field class="example-full-width">
               <mat-label>Senha</mat-label>
-              <input type="password" matInput formControlName="password"  >
+              <input type="password" matInput formControlName="password" />
               <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
             <!--<mat-form-field class="example-full-width">
@@ -41,7 +46,6 @@
               </div>
             </section>
           </form>
-
         </div>
       </div>
     </section>
