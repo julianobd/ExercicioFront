@@ -95,27 +95,4 @@ export class UsersComponent implements OnInit {
     })
   }
 
-  // openSpinnerDialog() {
-  //   this.dialog.open(SpinnderComponent)
-  // }
-
-  // Deleta o usuário
-  // deleteUser(id: string) {
-  //   this.usersService.deleteUser(id).subscribe(data => {
-  //     console.log(data)
-  //     console.log('usuário deletado')
-  //     // let u = this.users.filter((user) => user.id == id);
-  //     // this.users.pop();
-  //     this.router.navigate(['/users'])
-  //   })
-
-  // }
-
 }
-
-// @Component({
-//   selector: 'spinner-component',
-//   template: '<mat-spinner></mat-spinner>'
-// })
-
-// export class SpinnderComponent {}

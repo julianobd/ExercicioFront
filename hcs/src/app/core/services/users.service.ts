@@ -31,34 +31,6 @@ export class UsersService {
     return this.http.put<User>(`http://hcs.dev4.com.br/api/Users/EditUser/${this.token}/${user.id}`, user)
   }
 
-  // getUsers(){
-  //   const token = this.tokenService.getToken();
-  //   return this.http
-  //     .get(`http://hcs.dev4.com.br/api/Users/GetUsers/`, { token })
-  //     .pipe(map((res) => res));
-  // }
-
-  // addUser(){
-  //   const token = this.tokenService.getToken();
-  //   return this.http
-  //     .post(`http://hcs.dev4.com.br/api/Users/AddUser/`, { token })
-  //     .pipe(map((res) => res));
-  // }
-
-  // deleteUser(id: string){
-  //   const token = this.tokenService.getToken();
-  //   return this.http
-  //     .delete(`http://hcs.dev4.com.br/api/Users/DelUser/${token}/${id}`)
-  //     .pipe(map((res) => res));
-  // }
-
-  // editUser(id: string){
-  //   const token = this.tokenService.getToken();
-  //   return this.http
-  //     .put(`http://hcs.dev4.com.br/api/Users/EditUser/${token}/${id}`)
-  //     .pipe(map((res) => res));
-  // }
-
 }
 
 
