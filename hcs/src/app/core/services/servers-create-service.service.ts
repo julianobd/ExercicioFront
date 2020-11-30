@@ -24,7 +24,7 @@ export class ServersCreateServiceService {
 
     }
 
-        console.log(userToken);
+      console.log(userToken);
        return this.http.post(`http://hcs.dev4.com.br/api/Servers/AddServers/${userToken}`,params)
 
 

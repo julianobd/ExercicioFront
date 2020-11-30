@@ -1,67 +1,24 @@
-<section class="box">
-  <mat-card class="example-card">
-    <mat-card-title>Adicionar Tabela de Experiência</mat-card-title>
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Título</mat-label>
-        <input matInput  type="text" id="title" name="title" [(ngModel)]="model.title">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label for="level">Level</mat-label>
-        <input matInput type="number" id="level" name="level" [(ngModel)]="model.level">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label for="exp">Experiência</mat-label>
-        <input matInput  type="number" id="exp" name="exp" [(ngModel)]="model.exp">
-      </mat-form-field>
-    </form>
-    <div class="table-section">
-    <table class="table" *ngIf="addTable">
-      <thead>
-        <tr>
-          <th style="width: 200px">Título</th>
-          <th style="width: 200px">Level</th>
-          <th style="width: 200px">Exp</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let experience of experience; let i = index">
-          <td>{{ experience.title }}</td>
-          <td>{{ experience.level }}</td>
-          <td>{{ experience.exp }}</td>
-          <td >
-            <a (click)="editrowTable(i)"><mat-icon aria-hidden="false" aria-label="Example home icon">create</mat-icon></a>
-            <a (click)="delrowTable(i)"><mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon></a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-    <button mat-button class="btnSave" (click)="addrowTable()" type="submit">Adicionar</button>
-    <button mat-button class="btnSave" (click)="saveExpTable()">Salvar Tabela</button>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-  </mat-card>
-  <mat-card class="example-card2" *ngIf="edit">
-    <form class="example-form">
-      <mat-form-field class="example-full-width2">
-        <mat-label>Título</mat-label>
-        <input matInput  type="text" id="title" name="title" [(ngModel)]="model2.title">
-      </mat-form-field>
-      <mat-form-field class="example-full-width2">
-        <mat-label for="level">Level</mat-label>
-        <input matInput type="number" id="level" name="level" [(ngModel)]="model2.level">
-      </mat-form-field>
-      <mat-form-field class="example-full-width2">
-        <mat-label for="exp">Experiência</mat-label>
-        <input matInput  type="number" id="exp" name="exp" [(ngModel)]="model2.exp">
-      </mat-form-field>
-      <button mat-button type="submit" class="btnSave2" (click)="updateRow()">Atualizar</button>
-    </form>
-  </mat-card>
+  <!-- exp Column -->
+  <ng-container matColumnDef="exp">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Experiência </th>
+    <td mat-cell *matCellDef="let element"> {{element.exp}} </td>
+  </ng-container>
 
-  <div class="btn-alert" *ngIf="msg">
-    {{ msg }}
-    <a  (click)="clickme()" class="close">x</a>
-  </div>
+  <!-- level Column -->
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Level </th>
+    <td mat-cell *matCellDef="let element"> {{element.level}} </td>
+  </ng-container>
 
-</section>
+  <!-- Title Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<button mat-raised-button (click)="onCreate()">Adicionar Tabela de Exp</button>

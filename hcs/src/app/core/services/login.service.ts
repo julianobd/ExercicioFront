@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
   readonly apiURL : string;
+  private currentUser:any;
 
   constructor(private http:HttpClient) {
     this.apiURL = 'http://hcs.dev4.com.br/api/Login/Login';
@@ -18,4 +19,11 @@ export class LoginService {
      }
      return this.http.post(`${this.apiURL}`,dados)
    }
+   setUserdata(currentUser:any){
+    this.currentUser = currentUser;
+  }
+  getUserdata(){
+    return this.currentUser;
+  }
+
 }

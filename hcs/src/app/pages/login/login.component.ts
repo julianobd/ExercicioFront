@@ -13,14 +13,14 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
   numberToken: string;
-
-
+  data: any;
+  currentUser:any;
 
 
 
   constructor(private loginService:LoginService, private fb:FormBuilder, private tokenService:TokenService,private router:Router) {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required]],
       password:['',[Validators.required]]
     })
    }
@@ -29,15 +29,15 @@ export class LoginComponent implements OnInit {
 
   }
   save(){
-
     this.loginService.postLogin(this.form.value).subscribe((res:any)=>{
       this.tokenService.setToken(res.token);
-      this.router.navigate(['../getServer'])
+      this.currentUser = res;
+      this.loginService.setUserdata(this.currentUser);
+      this.router.navigate(['../getServer']);
     });
-
-
-
   }
+
+
 
  // emailFormControl = new FormControl('', [
    // Validators.required,

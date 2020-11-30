@@ -1,82 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AnimationDurations } from '@angular/material/core';
-import { AddExpTableService } from './../../../core/services/addExpTable.service';
+import { AddExpTableFormComponent } from './../add-exp-table-form/add-exp-table-form.component';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AddExpTabFormService } from './../../../core/services/add-exp-tab-form.service';
 
+export interface PeriodicElement {
+  exp: number;
+  level: number;
+  title: string;
+}
+const ELEMENT_DATA: PeriodicElement[] = [
+  {exp: 1, level: 1, title: 'Level 0'},
+  {exp: 2, level: 2, title: 'Level 1'},
+  {exp: 3, level: 3, title: 'Level 2'},
 
+];
 
 @Component({
   selector: 'app-add-exp-table',
   templateUrl: './add-exp-table.component.html',
   styleUrls: ['./add-exp-table.component.scss']
 })
-export class AddExpTableComponent implements OnInit {
+export class AddExpTableComponent implements AfterViewInit {
+  displayedColumns: string[] = ['exp', 'level', 'title'];
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  //serverId:any;*/
-  experience = [
-  ];
-  form:FormGroup;
-
-  constructor(private addExpTable:AddExpTableService, private fb:FormBuilder) {
-   /*this.form = this.fb.group({
-      title:['',Validators.required],
-      level:['',Validators.required],
-      exp:['',Validators.required],
-    })*/
+  constructor(private dialog:MatDialog, private addexptabform: AddExpTabFormService){
 
   }
+  @ViewChild(MatSort) sort: MatSort;
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
-  model: any={};
-  model2: any={};
-  expTab: any=[];
-  msg:any="";
-  addTable:Boolean;
-  addrowTable(){
-    this.experience.push(this.model);
-    console.log(this.experience)
-    this.model = {};
-    this.expTab = this.experience;
-    this.msg = "Item adicionado com sucesso"
-    this.addTable = true;
-
+  onCreate(){
+    this.addexptabform.initializeFormGroup();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(AddExpTableFormComponent, dialogConfig);
   }
-  saveExpTable(){
-  return this.addExpTable.editExpTable(this.expTab).subscribe(res=>console.log(res));
-
- }
-
-  delrowTable(i){
-    this.experience.splice(i,1)
-    console.log(i);
-    this.msg = "Item deletado com sucesso";
-    this.edit = false;
-  }
-  myValue;
-  edit:Boolean;
-  editrowTable(k){
-    this.model2.title = this.experience[k].title;
-    this.model2.level = this.experience[k].level;
-    this.model2.exp = this.experience[k].exp;
-    this.myValue = k;
-    this.edit = true;
-  }
-
-  updateRow(){
-    let k= this.myValue;
-    for(let i=0; i<this.experience.length; i++){
-          if(i==k){
-            this.experience[i]=this.model2;
-            this.model2 ={};
-          }
-    }
-    this.msg = "Item atualizado com sucesso"
-    this.edit = false;
-  }
-
-  clickme(){
-    this.msg="";
-  }
-
 }
+
+
+
+
+
+

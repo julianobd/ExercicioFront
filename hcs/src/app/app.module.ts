@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServersCreateComponent } from './pages/servers/servers-create/servers-create.component';
 import { AddExpTableComponent } from './pages/servers/add-exp-table/add-exp-table.component';
 import { GetServerComponent } from './pages/servers/get-server/get-server.component';
+import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add-exp-table-form.component';
+
+
+
 
 
 
@@ -20,8 +23,8 @@ import { GetServerComponent } from './pages/servers/get-server/get-server.compon
     LoginComponent,
     ServersCreateComponent,
     AddExpTableComponent,
-    GetServerComponent
-
+    GetServerComponent,
+    AddExpTableFormComponent,
 
   ],
   imports: [
@@ -31,9 +34,12 @@ import { GetServerComponent } from './pages/servers/get-server/get-server.compon
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[AddExpTableFormComponent]
 })
 export class AppModule { }
