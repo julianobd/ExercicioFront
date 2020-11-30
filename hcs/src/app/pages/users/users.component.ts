@@ -148,26 +148,6 @@ export class UsersComponent implements OnInit, AfterViewInit {
       dialogRef.afterClosed().subscribe(res => {
         if (res) {
           this.showSpinner = true;
-
-
-
-          // users.forEach(user => {
-          //     this.usersService.deleteUser(user.id).subscribe(data => {
-          //       console.log(data)
-          //       console.log(`usuário ${i} deletado`)
-          //       i++
-          //     })
-          //   })
-          //   setTimeout(() => {
-          //   console.log('Excluindo usuários...')
-          //   this.refreshUsers();
-          //   if (cont <= 1) {
-          //         this.snackBar.showMessage(`${cont} usuário deletado`)
-          //       } else {
-          //         this.snackBar.showMessage(`${cont} usuários deletados`)
-          //       }
-          // }, (cont * 300));
-
           users.forEach((val, key, arr) => {
             this.usersService.deleteUser(val.id).subscribe(data => {
               console.log(data);
@@ -178,7 +158,6 @@ export class UsersComponent implements OnInit, AfterViewInit {
               }
             });
           });
-
         }
       })
     }
