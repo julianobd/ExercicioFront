@@ -1,0 +1,47 @@
+
+.mat-card{
+  padding: 0px;
+}
+.card-form{
+  width: 500px;
+  height:400px;
+  position: relative;
+}
+mat-card-header h1{
+  display: flex;
+  margin: 16px;
+  align-items: center;
+  color: #ffffff;
+
+}
+mat-card-header{
+  justify-content: center;
+  text-transform: uppercase;
+
+}
+.card-form-title{
+  font-size: 27px;
+  height: 60px;
+  background: rgba(0, 154, 255, 0.8)
+}
+.normal-form{
+  margin: 10px;
+  padding-top: 50px;
+}
+form{
+  display: flex;
+  justify-content: center;
+}
+.controles-container{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-row button{
+  margin: 5px;
+}
+.btn-1{
+  background-color: #05BC4E;
+  color: white;
+}

@@ -10,7 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServersCreateComponent } from './pages/servers/servers-create/servers-create.component';
 import { AddExpTableComponent } from './pages/servers/add-exp-table/add-exp-table.component';
 import { GetServerComponent } from './pages/servers/get-server/get-server.component';
-import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add-exp-table-form.component';
+import { AddExpTableFormComponent } from '../app/pages/servers/add-exp-table/add-exp-table-form/add-exp-table-form.component';
+import { EditExpTableComponent } from './pages/servers/add-exp-table/edit-exp-table/edit-exp-table.component';
+
 
 
 
@@ -25,6 +27,7 @@ import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add
     AddExpTableComponent,
     GetServerComponent,
     AddExpTableFormComponent,
+    EditExpTableComponent,
 
   ],
   imports: [
@@ -40,6 +43,9 @@ import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[AddExpTableFormComponent]
+  entryComponents:[
+    AddExpTableFormComponent,
+    EditExpTableComponent
+  ]
 })
 export class AppModule { }

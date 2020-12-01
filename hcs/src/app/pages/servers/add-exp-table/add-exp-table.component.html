@@ -31,10 +31,10 @@
       <th class="text-center" mat-header-cell *matHeaderCellDef width="15%">Ações </th>
       <td class="text-center" mat-cell *matCellDef="let element">
         <button class="btn-edit">
-          <i class="material-icons edit">edit</i>
+          <i class="material-icons edit" (click)="onEdit(element.exp,element.level,element.title,element)">edit</i>
         </button>
         <button class="btn-delete">
-          <i class="material-icons delete">delete</i>
+          <i class="material-icons delete" (click)="onDelete(element)">delete</i>
         </button>
       </td>
     </ng-container>

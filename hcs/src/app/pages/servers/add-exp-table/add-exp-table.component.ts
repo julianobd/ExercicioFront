@@ -1,4 +1,6 @@
-import { AddExpTableFormComponent } from './../add-exp-table-form/add-exp-table-form.component';
+import { EditExpTableComponent } from './edit-exp-table/edit-exp-table.component';
+import { element } from 'protractor';
+import { AddExpTableFormComponent } from '../add-exp-table/add-exp-table-form/add-exp-table-form.component';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -54,6 +56,36 @@ export class AddExpTableComponent implements AfterViewInit {
     this.expTab=this.dataSource.data;
    return this.addExpTable.editExpTable(this.expTab).subscribe(res=>console.log(res));
   }
+  onDelete(element){
+      console.log(element)
+     this.dataSource.data.splice(element,1)
+     this.dataSource._updateChangeSubscription();
+     console.log(element)
+  }
+  onEdit(exp,level,title,element){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    //dialogConfig.width = "60%";
+
+    dialogConfig.data = {
+      exp:exp,
+      level:level,
+      title:title
+    }
+
+    const dialogRef = this.dialog.open(EditExpTableComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(
+      data =>{
+        console.log("Dialog Output:", data)
+        element.exp = data.exp;
+        element.level = data.level;
+        element.title = data.title
+      }
+    )
+  }
+
+
 
 }
 

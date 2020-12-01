@@ -4,7 +4,8 @@ import { AddExpTableComponent } from './pages/servers/add-exp-table/add-exp-tabl
 import { ServersCreateComponent } from './pages/servers/servers-create/servers-create.component';
 import { LoginComponent } from './pages/login/login.component';
 import { GetServerComponent } from './pages/servers/get-server/get-server.component';
-import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add-exp-table-form.component';
+import { AddExpTableFormComponent } from './pages/servers/add-exp-table/add-exp-table-form/add-exp-table-form.component';
+import { EditExpTableComponent } from './pages/servers/add-exp-table/edit-exp-table/edit-exp-table.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'expTabForm',
     component:AddExpTableFormComponent
+  },
+  {
+    path:'editExpTab',
+    component:EditExpTableComponent
   }
 ];
 
