@@ -10,23 +10,10 @@ export class AddExpTabFormService {
   constructor() { }
 
 
-
-  form:FormGroup = new FormGroup({
-    $key: new FormControl(null),
-    title: new FormControl('', Validators.required),
-    level: new FormControl('',Validators.required),
-    exp: new FormControl('',Validators.required)
-  });
-
-  initializeFormGroup(){
-    this.form.setValue({
-      $key:null,
-      title:'',
-      level:'',
-      exp:''
-    })
-
   }
 
 
-}
+
+
+
+

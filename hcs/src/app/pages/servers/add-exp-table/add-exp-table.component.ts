@@ -1,32 +1,33 @@
 import { AddExpTableFormComponent } from './../add-exp-table-form/add-exp-table-form.component';
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { AddExpTabFormService } from './../../../core/services/add-exp-tab-form.service';
+import { AddExpTableService } from './../../../core/services/addExpTable.service';
 
-export interface PeriodicElement {
+
+export interface ExperienceTable {
   exp: number;
   level: number;
   title: string;
 }
-const ELEMENT_DATA: PeriodicElement[] = [
-  {exp: 1, level: 1, title: 'Level 0'},
-  {exp: 2, level: 2, title: 'Level 1'},
-  {exp: 3, level: 3, title: 'Level 2'},
 
-];
 
 @Component({
   selector: 'app-add-exp-table',
   templateUrl: './add-exp-table.component.html',
   styleUrls: ['./add-exp-table.component.scss']
 })
-export class AddExpTableComponent implements AfterViewInit {
-  displayedColumns: string[] = ['exp', 'level', 'title'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  constructor(private dialog:MatDialog, private addexptabform: AddExpTabFormService){
+
+export class AddExpTableComponent implements AfterViewInit {
+  ELEMENT_DATA: ExperienceTable[] = [];
+  displayedColumns: string[] = ['exp', 'level', 'title','actions'];
+  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  expTab: ExperienceTable[];
+
+
+  constructor(private dialog:MatDialog, private addExpTable:AddExpTableService){
 
   }
   @ViewChild(MatSort) sort: MatSort;
@@ -35,13 +36,25 @@ export class AddExpTableComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
   onCreate(){
-    this.addexptabform.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    this.dialog.open(AddExpTableFormComponent, dialogConfig);
+    //dialogConfig.width = "60%";
+    const dialogRef = this.dialog.open(AddExpTableFormComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      this.ELEMENT_DATA.push(result);
+      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    }
+    );
+
   }
+
+  onSave(){
+    console.log(this.dataSource.data)
+    this.expTab=this.dataSource.data;
+   return this.addExpTable.editExpTable(this.expTab).subscribe(res=>console.log(res));
+  }
+
 }
 
 

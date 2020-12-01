@@ -1,7 +1,7 @@
-import { MatDialogRef } from '@angular/material/dialog';
-
 import { Component, OnInit } from '@angular/core';
 import { AddExpTabFormService } from './../../../core/services/add-exp-tab-form.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef} from '@angular/material/dialog';
 
 
 @Component({
@@ -13,13 +13,35 @@ export class AddExpTableFormComponent implements OnInit {
 
   constructor(
     public addExpTabFormService:AddExpTabFormService,
-    public dialogRef:MatDialogRef<AddExpTableFormComponent> ) { }
+    public dialogRef:MatDialogRef<AddExpTableFormComponent>) { }
+    formArray:any;
+
+  form:FormGroup = new FormGroup({
+    title: new FormControl('', Validators.required),
+    level: new FormControl('',Validators.required),
+    exp: new FormControl('',Validators.required)
+  });
+
+  initializeFormGroup(){
+    this.form.setValue({
+      title:'',
+      level:'',
+      exp:''
+    })
+  }
 
   ngOnInit(): void {
   }
   onClear(){
-    this.addExpTabFormService.form.reset();
-    this.addExpTabFormService.initializeFormGroup();
+    this.form.reset();
+    this.initializeFormGroup();
   }
+  addExpTable(){
+
+    this.dialogRef.close(this.form.value);
+
+  }
+
+
 
 }
