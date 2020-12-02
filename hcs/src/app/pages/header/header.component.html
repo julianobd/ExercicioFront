@@ -12,9 +12,9 @@
       <a mat-button>Pacotes</a>
       <a mat-button routerLink="expTabForm">Maquina de Experiencia</a>
       <a mat-button routerLink="serverCreate">Criar Servidor</a>
-      <a mat-button routerLink="">Perfil</a>
+      <a mat-button routerLink="/login">Perfil</a>
       <a mat-button routerLink="/avatar">Avatar</a>
-      <a mat-raised-button color="primary">Sair</a>
+      <button mat-raised-button (click)="logout()" color="primary">Sair</button>
     </div>
   </mat-toolbar>
 </p>

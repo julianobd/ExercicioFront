@@ -181,9 +181,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   // Abre o Dialog para adicionar um usuário
   openAddDialog() {
-    const dialogRef = this.dialog.open(UserCreateComponent, {
-      panelClass: 'custom-dialog'
-    });
+    const dialogRef = this.dialog.open(UserCreateComponent);
     dialogRef.afterClosed().subscribe(res => {
       if (res == true) {
         this.showSpinner = true;

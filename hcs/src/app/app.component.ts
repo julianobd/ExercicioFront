@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hcs';
+
+  showHeader: boolean = false;
+
+  constructor(private auth: AuthGuard) {}
+
+  ngOnInit(): void {
+    this.auth.showHeader.subscribe(
+      show => this.showHeader = show
+    );
+
+  }
+
 }

@@ -65,7 +65,7 @@
           <mat-select>
             <mat-option value="0">Moderador</mat-option>
             <mat-option *ngIf="currentUser.permission >= 1" value="1">Administrador</mat-option>
-            <mat-option *ngIf="currentUser.permission >= 2" value="2">Gerente</mat-option>
+            <mat-option *ngIf="currentUser.permission >= 2" value="2">Administrador Global</mat-option>
           </mat-select>
         </mat-form-field>
 

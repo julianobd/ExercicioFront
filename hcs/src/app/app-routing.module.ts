@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { AppComponent } from './app.component';
 import { UserProfileComponent } from './pages/users/user-profile/user-profile.component';
 import { UserEditComponent } from './pages/users/user-edit/user-edit.component';
@@ -15,19 +16,19 @@ import { AvatarListComponent } from './pages/avatar/avatar-list/avatar-list.comp
 import { ServersListComponent } from './pages/servers/servers-list/servers-list.component';
 
 const routes: Routes = [
-  {path: "", component: LoginComponent},
-  {path: 'avatar', component: AvatarListComponent},
-  {path: 'itensServidor', component: ServersListComponent},
-  {path: 'updateAvatar', component: AvatarEditComponent},
-  {path: "users", component: UsersComponent},
-  {path: "users/create", component: UserCreateComponent},
-  {path: "users/edit/:name", component: UserEditComponent},
-  {path: "users/profile/:name", component: UserProfileComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'serverCreate', component:ServersCreateComponent},
-  {path: 'addExpTable', component:AddExpTableComponent},
-  {path: 'getServer', component:GetServerComponent},
-  {path: 'expTabForm', component:AddExpTableFormComponent}
+  {path: "", component: LoginComponent},
+  {path: 'avatar', component: AvatarListComponent, canActivate: [AuthGuard]},
+  {path: 'itensServidor', component: ServersListComponent, canActivate: [AuthGuard]},
+  {path: 'updateAvatar', component: AvatarEditComponent, canActivate: [AuthGuard]},
+  {path: "users", component: UsersComponent, canActivate: [AuthGuard]},
+  {path: "users/create", component: UserCreateComponent, canActivate: [AuthGuard]},
+  {path: "users/edit/:name", component: UserEditComponent, canActivate: [AuthGuard]},
+  {path: "users/profile/:name", component: UserProfileComponent, canActivate: [AuthGuard]},
+  {path: 'serverCreate', component:ServersCreateComponent, canActivate: [AuthGuard]},
+  {path: 'addExpTable', component:AddExpTableComponent, canActivate: [AuthGuard]},
+  {path: 'getServer', component:GetServerComponent, canActivate: [AuthGuard]},
+  {path: 'expTabForm', component:AddExpTableFormComponent, canActivate: [AuthGuard]}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

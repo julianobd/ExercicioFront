@@ -1,3 +1,5 @@
+import { AuthGuard } from './guards/auth.guard';
+import { LoginService } from './core/services/login.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -65,7 +67,10 @@ import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add
     CustomFormsModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [
+    LoginService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     UserDeleteComponent,
