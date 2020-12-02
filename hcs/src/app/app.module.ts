@@ -14,11 +14,6 @@ import { AddExpTableFormComponent } from '../app/pages/servers/add-exp-table/add
 import { EditExpTableComponent } from './pages/servers/add-exp-table/edit-exp-table/edit-exp-table.component';
 
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +22,7 @@ import { EditExpTableComponent } from './pages/servers/add-exp-table/edit-exp-ta
     AddExpTableComponent,
     GetServerComponent,
     AddExpTableFormComponent,
-    EditExpTableComponent,
-
+    EditExpTableComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +31,7 @@ import { EditExpTableComponent } from './pages/servers/add-exp-table/edit-exp-ta
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule,
-
-
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AddExpTabFormService } from '../../../../core/services/add-exp-tab-form.service'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Inject } from '@angular/core';
+import { ExperienceTable } from '../add-exp-table.component';
 
 @Component({
   selector: 'app-edit-exp-table',
@@ -11,7 +13,9 @@ import { MatDialogRef} from '@angular/material/dialog';
 export class EditExpTableComponent implements OnInit {
 
   constructor( public addExpTabFormService:AddExpTabFormService,
-    public dialogRef:MatDialogRef<EditExpTableComponent>) { }
+    public dialogRef:MatDialogRef<EditExpTableComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: ExperienceTable) {
+    }
     formArray:any;
 
     form:FormGroup = new FormGroup({
@@ -19,6 +23,7 @@ export class EditExpTableComponent implements OnInit {
       level: new FormControl('',Validators.required),
       exp: new FormControl('',Validators.required)
     });
+
     initializeFormGroup(){
       this.form.setValue({
         title:'',
@@ -27,7 +32,14 @@ export class EditExpTableComponent implements OnInit {
       })
     }
 
+
   ngOnInit(): void {
+      this.form.setValue({
+        title:this.data.title,
+        level:this.data.level,
+        exp:this.data.exp
+      })
+
   }
   onClear(){
     this.form.reset();
