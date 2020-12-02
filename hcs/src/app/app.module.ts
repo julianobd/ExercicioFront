@@ -30,7 +30,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { UsersDeleteManyComponent } from './pages/users/users-delete-many/users-delete-many.component';
 import { AddExpTableComponent } from './pages/servers/add-exp-table/add-exp-table.component';
 import { GetServerComponent } from './pages/servers/get-server/get-server.component';
-import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add-exp-table-form.component';
+import { AddExpTableFormComponent } from '../app/pages/servers/add-exp-table/add-exp-table-form/add-exp-table-form.component';
+import { EditExpTableComponent } from './pages/servers/add-exp-table/edit-exp-table/edit-exp-table.component';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add
     AddExpTableComponent,
     GetServerComponent,
     AddExpTableFormComponent,
+    EditExpTableComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add
     UserDeleteComponent,
     UserCreateComponent,
     UserEditComponent,
-    AddExpTableFormComponent
+    AddExpTableFormComponent,
+    EditExpTableComponent
   ]
 })
 export class AppModule { }

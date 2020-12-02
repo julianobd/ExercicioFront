@@ -1,0 +1,32 @@
+<mat-card class="card-form">
+  <mat-card-header class="card-form-title">
+    <h1>Editar Tabela de Experiência</h1>
+  </mat-card-header>
+  <form [formGroup]="form" class="normal-form">
+    <div class="controles-container">
+      <input type="hidden">
+      <mat-form-field>
+        <mat-label>Título</mat-label>
+        <input formControlName="title" matInput>
+        <mat-error>Campo Requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Level</mat-label>
+        <input formControlName="level" type="number" matInput value>
+        <mat-error>Campo Requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Exp</mat-label>
+        <input formControlName="exp" type="number" matInput>
+        <mat-error>Campo Requerido</mat-error>
+      </mat-form-field>
+      <div class="button-row">
+      <button mat-raised-button class="btn-1" type="submit" [disabled]="form.invalid"(click)="addExpTable()">Adicionar</button>
+      <button mat-raised-button color="warn" type="submit" (click)="onClear()">Limpar</button>
+      <button mat-raised-button (click)="close()">Cancelar</button>
+        </div>
+    </div>
+
+  </form>
+  </mat-card>
+

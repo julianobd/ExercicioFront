@@ -10,7 +10,8 @@ import { AddExpTableComponent } from './pages/servers/add-exp-table/add-exp-tabl
 import { ServersCreateComponent } from './pages/servers/servers-create/servers-create.component';
 import { LoginComponent } from './pages/login/login.component';
 import { GetServerComponent } from './pages/servers/get-server/get-server.component';
-import { AddExpTableFormComponent } from './pages/servers/add-exp-table-form/add-exp-table-form.component';
+import { AddExpTableFormComponent } from './pages/servers/add-exp-table/add-exp-table-form/add-exp-table-form.component';
+import { EditExpTableComponent } from './pages/servers/add-exp-table/edit-exp-table/edit-exp-table.component';
 import { AvatarEditComponent } from './pages/avatar/avatar-edit/avatar-edit.component';
 import { AvatarListComponent } from './pages/avatar/avatar-list/avatar-list.component';
 import { ServersListComponent } from './pages/servers/servers-list/servers-list.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'serverCreate', component:ServersCreateComponent, canActivate: [AuthGuard]},
   {path: 'addExpTable', component:AddExpTableComponent, canActivate: [AuthGuard]},
   {path: 'getServer', component:GetServerComponent, canActivate: [AuthGuard]},
-  {path: 'expTabForm', component:AddExpTableFormComponent, canActivate: [AuthGuard]}
+  {path: 'expTabForm', component:AddExpTableFormComponent, canActivate: [AuthGuard]},
+  {path: 'editExpTab', component:EditExpTableComponent, canActivate: [AuthGuard]}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
