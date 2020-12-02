@@ -19,10 +19,11 @@ export class LoginService {
      }
      return this.http.post(`${this.apiURL}`,dados)
    }
-   setUserdata(currentUser:any){
-    this.currentUser = currentUser;
-  }
+  //  setUserdata(currentUser:any){
+  //   this.currentUser = currentUser;
+  // }
   getUserdata(){
+    this.currentUser = JSON.parse(sessionStorage.getItem('user'))
     return this.currentUser;
   }
 

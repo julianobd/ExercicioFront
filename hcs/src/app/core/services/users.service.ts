@@ -21,7 +21,6 @@ import { Observable } from 'rxjs';
   }
 
 
-
   getUsers() : Observable<User[]> {
     return this.http.get<User[]>(`http://hcs.dev4.com.br/api/Users/GetUsers/${this.getToken()}`)
   }

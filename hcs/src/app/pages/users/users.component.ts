@@ -102,12 +102,18 @@ export class UsersComponent implements OnInit, AfterViewInit {
       this.showSpinner = true;
       this.changeDetectorRef.detectChanges();
       this.usersService.getUsers().subscribe((data) => {
-        this.users = data;
-        console.log(data, 'dados obtidos');
-        console.log(this.users, 'dados armazenados');
-        this.currentUser = this.login.getUserdata();
-        console.log(this.currentUser, 'dados do usuário logado')
-        this.showSpinner = false;
+        if (data.length == 0) {
+          this.snackBar.showMessage('nenhum usuário')
+          console.log('array vazio')
+        } else {
+          this.users = data;
+          console.log(data, 'dados obtidos');
+          console.log(this.users, 'dados armazenados');
+          this.currentUser = this.login.getUserdata();
+          console.log(this.currentUser, 'dados do usuário logado')
+          this.showSpinner = false;
+        }
+
     }, err => {
       console.log('', err);
       this.snackBar.showMessage('Erro ao buscar os usários!')

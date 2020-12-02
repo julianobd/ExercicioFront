@@ -30,9 +30,11 @@ export class LoginComponent implements OnInit {
   }
   save(){
     this.loginService.postLogin(this.form.value).subscribe((res:any)=>{
-      this.tokenService.setToken(res.token);
-      this.currentUser = res;
-      this.loginService.setUserdata(this.currentUser);
+      // this.tokenService.setToken(res.token);
+      sessionStorage.setItem('user', JSON.stringify(res));
+      // this.currentUser = JSON.parse(sessionStorage.getItem('user'));
+      // this.loginService.setUserdata(this.currentUser);
+      // console.log('usuario salvo', this.currentUser)
       this.router.navigate(['../getServer']);
     });
   }

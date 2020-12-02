@@ -13,22 +13,15 @@ export class TokenService {
 
   }
 
-  setToken(token:string){
-    this.token = token;
-    console.log(token)
-  }
+  // setToken(token:string){
+  //   this.token = token;
+  //   console.log(token)
+  // }
 
   getToken(){
+    let user = JSON.parse(sessionStorage.getItem('user'))
+    this.token = user.token;
+    console.log('token salvo', this.token)
     return this.token;
   }
-
-
-
-
-
-
-
 }
-
-
-
